@@ -1,0 +1,2 @@
+module C_group {
+}
