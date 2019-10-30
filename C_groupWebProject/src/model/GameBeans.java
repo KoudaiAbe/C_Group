@@ -3,10 +3,10 @@ package model;
 import java.io.Serializable;
 
 /**
- * @author 近藤
- *
  * ユーザアカウントを保存するJavaBeans<br>
  * プロパティはname, password
+ *
+ * @author 近藤
  */
 public class GameBeans
 implements Serializable
