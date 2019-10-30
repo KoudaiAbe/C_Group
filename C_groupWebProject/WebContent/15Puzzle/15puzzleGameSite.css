@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+/*#gameWindow {
+	background-image: url("15PuzzleTexture/BackGround.png");
+	position: absolute;
+	top: 50px;
+	width: 350px;
+	height: 600px;
+	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", "Osaka-mono", "monospace";
+}*/
+#gameWindow {
+	background-image: url("15PuzzleTexture/BackGround.png");
+	margin: 50px auto;
+	width: 350px;
+	height: 600px;
+	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", "Osaka-mono", "monospace";
+}
+
+#gameWindow > a[href="15puzzleGameSite.html"] {
+	position: relative;
+	top: 30px;
+	left: 130px;
+	z-index: 1;
+}
+
+#gameWindow > #frontWindow {
+	position: relative;
+	top: 210px;
+	left: 75px;
+	width: 200px;
+	height: 180px;
+	z-index: 1;
+}
+
+#gameWindow > #levelText {
+	position: relative;
+	width: auto;
+	top: -40px;
+	left: 20px;
+	font-weight: bold;
+}
+
+#gameWindow > #timeText {
+	position: relative;
+	top: -40px;
+	left: 55px;
+	font-weight: bold;
+}
+
+#gameWindow > #countText {
+	position: relative;
+	top: -40px;
+	left: 70px;
+	font-weight: bold;
+}
+
+#gameWindow > #stage {
+	position: relative;
+	top: -30px;
+}
+
+a[href="15puzzleTopSite.html"] {
+	margin: 0 auto;
+}
