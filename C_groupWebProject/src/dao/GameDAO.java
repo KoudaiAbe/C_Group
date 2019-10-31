@@ -1,5 +1,7 @@
 package dao;
 
-public class GameDAO {
+public class GameDAO
+extends ConstantDefinition
+{
 
 }
