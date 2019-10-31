@@ -2050,7 +2050,7 @@
                                   <source class="net.java.amateras.uml.sequencediagram.model.ActivationModel" reference="../../.."/>
                                   <target class="net.java.amateras.uml.sequencediagram.model.ActivationModel" reference="../../../../../.."/>
                                   <bendpoints/>
-                                  <name>toRequestScope</name>
+                                  <name>toSessionScope</name>
                                   <direction>false</direction>
                                 </net.java.amateras.uml.sequencediagram.model.ReturnMessageModel>
                               </sourceConnections>
