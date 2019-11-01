@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-	
+
 <head>
 	<meta charset="UTF-8">
-	<title>C Group Project</title>
+	<title></title>
 	<style type="text/css">
 	<!--
 		body {
@@ -17,6 +17,7 @@
 		}
 		.webCommon_Header {
 		background-color: aqua;
+		position:absolute;
 		margin: 0px;
 		width: 100%;
 		height: 150px;
@@ -24,27 +25,48 @@
 		}
 
 		.webCommon_Header > .button {
-			background-color: blue;
 			position:absolute;
 			top: 100px;
 			width: 100%;
-			height: 80px;
+			height: 50px;
 			z-index: 101;
+		}
+		
+		.webCommon_Header > .button > .btn-border {
+			display: inline-block;
+			max-width: 180px;
+			height: 30px;
+			margin: 0px 20px;
+			text-align: left;
+			border: 2px solid #9ec34b;
+			font-size: 20px;
+			color: #9ec34b;
+			text-decoration: none;
+			font-weight: bold;
+			padding: 8px 16px;
+			border-radius: 4px;
+			transition: .4s;
+		}
+
+		.webCommon_Header > .button > .btn-border:hover {
+			background-color: #9ec34b;
+			border-color: #cbe585;
+			color: #FFF;
 		}
 	-->
 	</style>
 </head>
-	
+
 <body>
 	<div class="webCommon_Header">
-		<h1 style="margin: 0px; text-align: left;">ヘッドテキスト</h1>
+		<h1 style="margin-left: 50px; text-align: left; font-size: 30pt;">ヘッドテキスト</h1>
 		<div class="button">
-			<a href="#">top</a>
-			<a href="#">mypage</a>
-			<a href="#">ranking</a>
-			<a href="#">login</a>
+			<a href="index.jsp" class="btn-border">HOME</a>
+			<a href="mypage.jsp" class="btn-border">MY PAGE</a>
+			<a href="ranking.jsp" class="btn-border">RANKING</a>
+			<a href="login.jsp" class="btn-border">LOGIN</a>
 		</div>
 	</div>
 </body>
-	
+
 </html>

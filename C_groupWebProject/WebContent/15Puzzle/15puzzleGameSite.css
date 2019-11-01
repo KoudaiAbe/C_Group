@@ -10,7 +10,9 @@
 }*/
 #gameWindow {
 	background-image: url("15PuzzleTexture/BackGround.png");
-	position: sticky;
+	position: absolute;
+	left: 0px;
+	right: 0px;
 	margin: 50px auto;
 	width: 350px;
 	height: 600px;
@@ -36,7 +38,7 @@
 #gameWindow > #levelText {
 	position: absolute;
 	width: auto;
-	top: 10px;
+	top: 5px;
 	left: 165px;
 	font-weight: bold;
 }
@@ -50,7 +52,7 @@
 
 #gameWindow > #countText {
 	position: absolute;
-	top: 120px;
+	top: 115px;
 	left: 240px;
 	font-weight: bold;
 }
@@ -62,5 +64,9 @@
 }
 
 a[href="15puzzleTopSite.html"] {
+	position: absolute;
+	top: 700px;
+	left: 0px;
+	right: 0px;
 	margin: 0 auto;
 }
