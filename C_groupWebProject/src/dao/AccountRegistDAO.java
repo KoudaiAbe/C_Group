@@ -1,7 +1,7 @@
 package dao;
 
-public class AccountRegistDAO
-extends ConstantDefinition
-{
+public class AccountRegistDAO extends ConstantDefinition{
+	
+	
 
 }
