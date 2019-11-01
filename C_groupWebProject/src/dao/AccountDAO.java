@@ -23,7 +23,7 @@ extends ConstantDefinition{
 		List<AccountBeans> AccountBeansList = new ArrayList<>();
 
 		//データベース接続
-		try(Connection con = DriverManager.getConnection(driverName,driverUser,driverPass)){
+		try(Connection con = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
 			//SELECT文の準備
 			String sql = "SELECT ID,NAME,TEXT FROM MUTTER ORDER BY ID DESC";
 			PreparedStatement pStmt = con.prepareStatement(sql);
@@ -50,7 +50,7 @@ extends ConstantDefinition{
 	public boolean create(AccountBeans accountbeans) {
 
 		//データベース接続
-		try(Connection conn = DriverManager.getConnection(driverName,driverUser,driverPass)){
+		try(Connection conn = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
 
 			//INSERT文の準備
 			String sql = "INSERT INTO MUTTER(NAME,TEXT) VALUES(?,?";

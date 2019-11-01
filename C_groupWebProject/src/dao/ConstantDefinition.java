@@ -10,18 +10,18 @@ public abstract class ConstantDefinition
 {
 
 	/** DBドライバの名称 */
-	protected final String driverName = "jdbc:postgresql://localhost:5432/game_db";
+	protected final String DRIVER_NAME = "jdbc:postgresql://localhost:5432/game_db";
 
 	/** ユーザアカウントDBのURL */
-	protected final String accountURL = "#";
+	protected final String ACCOUNT_URL = "#";
 
 	/** ゲームデータ管理DBのURL */
-	protected final String gameURL = "#";
+	protected final String GAME_URL = "#";
 
 	/** DBへアクセスするユーザ名 */
-	protected final String driverUser = "postgres";
+	protected final String DRIVER_USER = "postgres";
 
 	/** DBへアクセスするパスワード */
-	protected final String driverPass = "root";
+	protected final String DRIVER_PASS = "root";
 
 }
