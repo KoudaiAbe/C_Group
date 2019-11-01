@@ -23,9 +23,9 @@ extends ConstantDefinition{
 		List<AccountBeans> AccountBeansList = new ArrayList<>();
 
 		//データベース接続
-		try(Connection con = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
+		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
 			//SELECT文の準備
-			String sql = "SELECT NAME,PASS FROM game_db";
+			String sql = "SELECT NAME,PASS FROM account";
 			PreparedStatement pStmt = con.prepareStatement(sql);
 
 			//SELECTを実行
@@ -33,8 +33,8 @@ extends ConstantDefinition{
 
 			//SELECT文の結果をArrayListに格納
 			while(rs.next()) {
-				String Name = rs.getString("NAME");
-				//String text = rs.getString("TEXZT");
+				String name = rs.getString("NAME");
+				String password = rs.getString("PASS");
 
 				//引数を設定する
 				AccountBeans accountbeans = new AccountBeans();
@@ -47,28 +47,28 @@ extends ConstantDefinition{
 		return AccountBeansList;
 	}
 
-	public boolean create(AccountBeans accountbeans) {
-
-		//データベース接続
-		try(Connection conn = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
-
-			//INSERT文の準備
-			String sql = "INSERT INTO game_db(NAME,PASS) VALUES(?,?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			//INSERT文中の「？」に使用する値を設定しSQLを完成
-			pStmt.setString(1, accountbeans.getName());
-			//pStmt.setString(2, accountbeans.getText());
-
-			//INSERT文を実行
-			int result = pStmt.executeUpdate();
-			if(result != 1) {
-				return false;
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
+//	public boolean create(AccountBeans accountbeans) {
+//
+//		//データベース接続
+//		try(Connection conn = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
+//
+//			//INSERT文の準備
+//			String sql = "INSERT INTO game_db(NAME,PASS) VALUES(?,?";
+//			PreparedStatement pStmt = conn.prepareStatement(sql);
+//
+//			//INSERT文中の「？」に使用する値を設定しSQLを完成
+//			pStmt.setString(1, accountbeans.getName());
+//			//pStmt.setString(2, accountbeans.getText());
+//
+//			//INSERT文を実行
+//			int result = pStmt.executeUpdate();
+//			if(result != 1) {
+//				return false;
+//			}
+//		}catch(SQLException e) {
+//			e.printStackTrace();
+//			return false;
+//		}
+//		return true;
+//	}
 }
