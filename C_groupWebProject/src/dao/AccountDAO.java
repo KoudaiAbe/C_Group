@@ -25,7 +25,7 @@ extends ConstantDefinition{
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
 			//SELECT文の準備
-			String sql = "SELECT ID,NAME,TEXT FROM MUTTER ORDER BY ID DESC";
+			String sql = "SELECT NAME,PASS FROM game_db";
 			PreparedStatement pStmt = con.prepareStatement(sql);
 
 			//SELECTを実行
@@ -53,7 +53,7 @@ extends ConstantDefinition{
 		try(Connection conn = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
 
 			//INSERT文の準備
-			String sql = "INSERT INTO MUTTER(NAME,TEXT) VALUES(?,?";
+			String sql = "INSERT INTO game_db(NAME,PASS) VALUES(?,?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//INSERT文中の「？」に使用する値を設定しSQLを完成
