@@ -14,29 +14,24 @@ import model.AccountBeans;
 public class AccountDAO
 extends ConstantDefinition{
 
-	//データベース接続に使用する情報
-//	private final String JDBC_URL = "jdbc:postgresql://localhost:5432/game_db";
-//	private final String DB_USER = "postgres";
-//	private final String DB_PASS ="root";
-
 	public List<AccountBeans> findALL(){
 		List<AccountBeans> AccountBeansList = new ArrayList<>();
 
-		//データベース接続
+		//繝�繝ｼ繧ｿ繝吶�ｼ繧ｹ謗･邯�
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
-			//SELECT文の準備
+			//SELECT譁�縺ｮ貅門ｙ
 			String sql = "SELECT NAME,PASS FROM account";
 			PreparedStatement pStmt = con.prepareStatement(sql);
 
-			//SELECTを実行
+			//SELECT繧貞ｮ溯｡�
 			ResultSet rs = pStmt.executeQuery();
 
-			//SELECT文の結果をArrayListに格納
+			//SELECT譁�縺ｮ邨先棡繧但rrayList縺ｫ譬ｼ邏�
 			while(rs.next()) {
 				String name = rs.getString("NAME");
 				String password = rs.getString("PASS");
 
-				//引数を設定する
+				//蠑墓焚繧定ｨｭ螳壹☆繧�
 				AccountBeans accountbeans = new AccountBeans();
 				AccountBeansList.add(accountbeans);
 			}
@@ -46,29 +41,4 @@ extends ConstantDefinition{
 		}
 		return AccountBeansList;
 	}
-
-//	public boolean create(AccountBeans accountbeans) {
-//
-//		//データベース接続
-//		try(Connection conn = DriverManager.getConnection(DRIVER_NAME,DRIVER_USER,DRIVER_PASS)){
-//
-//			//INSERT文の準備
-//			String sql = "INSERT INTO game_db(NAME,PASS) VALUES(?,?";
-//			PreparedStatement pStmt = conn.prepareStatement(sql);
-//
-//			//INSERT文中の「？」に使用する値を設定しSQLを完成
-//			pStmt.setString(1, accountbeans.getName());
-//			//pStmt.setString(2, accountbeans.getText());
-//
-//			//INSERT文を実行
-//			int result = pStmt.executeUpdate();
-//			if(result != 1) {
-//				return false;
-//			}
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//			return false;
-//		}
-//		return true;
-//	}
 }
