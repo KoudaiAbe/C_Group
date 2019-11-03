@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<jsp:include page="/HEADER.html"/>
+	<jsp:include page="/HEADER.jsp"/>
 
 	<div class="linkImg">
 		<h1 style="font-size: 40px;">GAME SELECT</h1>
