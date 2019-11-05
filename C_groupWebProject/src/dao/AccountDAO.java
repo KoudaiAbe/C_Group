@@ -14,7 +14,7 @@ import model.AccountBeans;
 public class AccountDAO
 extends ConstantDefinition{
 
-	public List<AccountBeans> findALL(){
+	public boolean getAccount(AccountBeans beans){
 		List<AccountBeans> AccountBeansList = new ArrayList<>();
 
 		//繝�繝ｼ繧ｿ繝吶�ｼ繧ｹ謗･邯�
@@ -37,8 +37,8 @@ extends ConstantDefinition{
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
-			return null;
+			return false;
 		}
-		return AccountBeansList;
+		return true;
 	}
 }

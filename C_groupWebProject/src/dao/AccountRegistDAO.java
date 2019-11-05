@@ -13,13 +13,13 @@ import model.AccountBeans;
 public class AccountRegistDAO
 extends ConstantDefinition
 {
-	public List<AccountBeans> findALL(){
-		List<AccountBeans> AccountBeansList = new ArrayList<>();
+	public boolean createAccount(AccountBeans beans){
+		List<String> nameList = new ArrayList<>();
 
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
 			//SELECT文の準備
-			String sql = "SELECT NAME,PASS FROM account";
+			String sql = "SELECT NAME FROM account";
 			PreparedStatement pStmt = con.prepareStatement(sql);
 
 			//SELECTを実行
@@ -27,24 +27,38 @@ extends ConstantDefinition
 
 			//SELECT文の結果をArrayListに格納
 			while(rs.next()) {
-				String name = rs.getString("NAME");
-				String password = rs.getString("PASS");
+				nameList.add(rs.getString("NAME"));
+			}
 
-				//for文でリストの中からnameが一致するか取得
-				//if(name.equals(変数名){
-				//return loginlogic
-				//}else{
-				//name,passをINSERT
-				//}
+			//for文でリストの中からnameが一致するか取得
+			for(String list : nameList) {
+				if(list.equals(beans.getName()) ){
+					return false;
+				}
+//					else {
+//						AccountBeans accountbeans = new AccountBeans();
+//						AccountBeansList.add(accountbeans);
+//						String sqladd = "SELECT NAME,PASS INSERT account";
+//					}
 
 				//引数を設定する
-				AccountBeans accountbeans = new AccountBeans();
-				AccountBeansList.add(accountbeans);
+//				AccountBeans accountbeans = new AccountBeans();
+//				AccountBeansList.add(accountbeans);
+
 			}
+
+			// DBにアカウントを登録する
+			String sqladd =
+					"INSERT INTO account VALUES('"+ beans.getName() +"', '"+ beans.getPass() +"')";
+			PreparedStatement pStmt2 = con.prepareStatement(sqladd);
+
+			//INSERTを実行
+			pStmt2.executeQuery();
+
 		}catch(SQLException e) {
 			e.printStackTrace();
-			return null;
+			return false;
 		}
-		return AccountBeansList;
+		return true;
 	}
 }

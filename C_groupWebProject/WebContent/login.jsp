@@ -24,7 +24,7 @@
 	<!--タブを切り替えて表示するコンテンツ-->
     <div class="panel-group">
 		<div class="panel tab-A is-show">
-			<form action="../src/servlet/Login.java" method="get">
+			<form action="/C_groupWebProject/Login" method="get">
 				<div id="errorText" style="color: red;"></div>
 				ユーザ名　 ：<input type="text" name="name"><br>
 				パスワード：<input type="password" name="pass"><br>
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="panel tab-B">
-			<form action="../src/servlet/Login.java" method="post">
+			<form action="/C_groupWebProject/Login" method="post">
 				<div id="errorText" style="color: red;"></div>
 				ユーザ名　 ：<input type="text" name="name"><br>
 				パスワード：<input type="password" name="pass"><br>

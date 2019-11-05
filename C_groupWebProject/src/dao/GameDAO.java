@@ -40,12 +40,6 @@ extends ConstantDefinition{
 						String sqladd = "SELECT NAME,PASS INSERT account";
 					}
 				}
-				//if(name.equals(変数名){
-				//return loginlogic
-				//}else{
-				//name,passをINSERT
-				//}
-
 				//引数を設定する
 //				AccountBeans accountbeans = new AccountBeans();
 //				AccountBeansList.add(accountbeans);
