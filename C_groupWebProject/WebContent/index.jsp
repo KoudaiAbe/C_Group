@@ -14,7 +14,7 @@
 
 	<div class="linkImg">
 		<h1 style="font-size: 40px;">GAME SELECT</h1>
-		<a href="#"><img src="TOPimg/DUSTBOX.png" width="300" height="300" alt="DUSTBOX GAME"/></a>
+		<a href="#"><img src="TOPimg/DustBoxGame.png" width="300" height="300" alt="DUSTBOX GAME"/></a>
 		<a href="#"><img src="TOPimg/_DUMMY.png" width="300" height="300" alt=""/></a>
 		<a href="#"><img src="TOPimg/_DUMMY.png" width="300" height="300" alt=""/></a>
 		<a href="#"><img src="TOPimg/_DUMMY.png" width="300" height="300" alt=""/></a>

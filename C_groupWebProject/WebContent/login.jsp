@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="model.AccountBeans" %>
+    <% AccountBeans account = (AccountBeans) session.getAttribute("accountBeans"); %>
+    <% String action = (String) session.getAttribute("action"); %>
 <!DOCTYPE html>
 <html>
 
@@ -41,37 +44,57 @@
 	</div>
 
 	<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function() {
-			// タブに対してクリックイベントを適用
-			const tabs = document.getElementsByClassName('tab');
+		(function() {
+			document.addEventListener('DOMContentLoaded', function() {
+				// タブに対してクリックイベントを適用
+				const tabs = document.getElementsByClassName('tab');
 
-			for (let i = 0; i < tabs.length; i++)
-			{ tabs[i].addEventListener('click', tabSwitch, false); }
+				for (let i = 0; i < tabs.length; i++)
+				{ tabs[i].addEventListener('click', tabSwitch, false); }
 
-			function tabSwitch()
-			{	// タブの切り替え
+				function tabSwitch()
+				{	// タブの切り替え
 
-				// タブのclassの値を変更
-				document.getElementsByClassName('is-active')[0].classList.remove('is-active');
-				this.classList.add('is-active');
+					// タブのclassの値を変更
+					document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+					this.classList.add('is-active');
 
-				// コンテンツのclassの値を変更
-				document.getElementsByClassName('is-show')[0].classList.remove('is-show');
-				const arrayTabs = Array.prototype.slice.call(tabs);
-				const index = arrayTabs.indexOf(this);
-				document.getElementsByClassName('panel')[index].classList.add('is-show');
-			};
-		});
+					// コンテンツのclassの値を変更
+					document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+					const arrayTabs = Array.prototype.slice.call(tabs);
+					const index = arrayTabs.indexOf(this);
+					document.getElementsByClassName('panel')[index].classList.add('is-show');
+				};
+			});
 
-		function errorOut(msg)
-		{	// リダイレクトされた時のエラーメッセージ
+			if (action != null)
+			{	// リダイレクトされた時のエラーメッセージ
 
-			let text = document.getElementById("errorText");
-			const p = document.createElement("p");
-			p.textContent = msg;
-			text.appendChild(p);
-		}
+				let msg;
+
+				switch (action)
+				{	// 新規作成ORログイン
+
+					case "get":
+						msg = "ユーザ名もしくはパスワードが間違っています。";
+						break;
+
+					case "post":
+						msg = "このユーザ名は既に使用されています。";
+						break;
+
+				}	// switch end
+
+				// エラーテキストの表示
+				let text = document.getElementById("errorText");
+				const p = document.createElement("p");
+				p.textContent = msg;
+				text.appendChild(p);
+
+			}	// if end
+		})();
 	</script>
+	<% session.removeAttribute("result"); %>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="model.AccountBeans" %>
+    <% AccountBeans account = (AccountBeans) request.getAttribute("accountBeans"); %>
 <!DOCTYPE html>
 <html>
 
@@ -77,9 +79,16 @@
 </head>
 
 <body>
+	<%
+	String name;
+	if (account == null)
+	{ name = "ゲスト"; }
+	else
+	{ name = account.getName(); }
+	%>
 	<div class="webCommon_Header">
 		<h1>ヘッドテキスト</h1>
-		<h2>ようこそゲストさん！</h2>
+		<h2>ようこそ<%= name %>さん！</h2>
 		<div class="button">
 			<a href="index.jsp" class="btn-border">HOME</a>
 			<a href="mypage.jsp" class="btn-border">MY PAGE</a>

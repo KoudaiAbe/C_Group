@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="model.AccountBeans" %>
+    <% AccountBeans account = (AccountBeans) session.getAttribute("accountBeans"); %>
+    <% String action = (String) session.getAttribute("action"); %>
 <!DOCTYPE html>
 <html>
 
@@ -28,9 +31,24 @@
 	</div>
 
 	<script type="text/javascript">
-		(function(name, result) {
+		(function() {
 			let text = document.getElementById("resultText"),
-				reText = document.getElementById("returnTimer");
+				reText = document.getElementById("returnTimer"),
+				name = <%= account.getName() %>;
+				result;
+
+			switch (<%= action %>)
+			{	// 新規作成ORログイン
+
+				case "get":
+					result = "ログインが完了しました。";
+					break;
+
+				case "post":
+					result = "登録が完了しました。";
+					break;
+
+			}	// switch end
 
 			// ログインorレジストの結果とアカウント名の表示
 			text.textContent = name +"さんの"+ result;
@@ -54,6 +72,7 @@
 			timer();
 		})();
 	</script>
+	<% session.removeAttribute("result"); %>
 </body>
 
 </html>
