@@ -18,6 +18,9 @@ extends ConstantDefinition
 
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
+
+			Class.forName("org.postgresql.Driver");
+
 			//SELECT文の準備
 			String sql = "SELECT NAME FROM account";
 			PreparedStatement pStmt = con.prepareStatement(sql);
@@ -58,6 +61,9 @@ extends ConstantDefinition
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return false;
+		} catch (ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
 		}
 		return true;
 	}

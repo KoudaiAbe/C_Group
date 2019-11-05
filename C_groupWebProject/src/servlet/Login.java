@@ -70,7 +70,9 @@ public class Login extends HttpServlet {
 			//ログイン失敗、リダイレクト。
 			session.removeAttribute("accounBeans");
 			accounBeans = null;
-			response.sendRedirect("/login.jsp");
+			RequestDispatcher dispatcher =
+					request.getRequestDispatcher("/login.jsp");
+			dispatcher.forward(request, response);
 
 		}
 	}
@@ -79,7 +81,7 @@ public class Login extends HttpServlet {
 	/** アカウント作成処理 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+System.out.println("post");
 		//LoginページのNameとPassを受け取る。
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
@@ -91,7 +93,7 @@ public class Login extends HttpServlet {
 		accounBeans.setPass(pass);
 		//既存アカウント名と被らないように新規アカウントを保存。
 		boolean check = accountRegistDAO.createAccount(accounBeans);
-
+System.out.println(check);
 		if(check) {
 
 			//被らないので、新規登録。AccountBeansnに保存。
@@ -108,7 +110,9 @@ public class Login extends HttpServlet {
 
 			//被るので登録出来ず、リダイレクト。
 			accounBeans = null;
-			response.sendRedirect("/login.jsp");
+			RequestDispatcher dispatcher =
+					request.getRequestDispatcher("/login.jsp");
+			dispatcher.forward(request, response);
 
 		}
 	}
