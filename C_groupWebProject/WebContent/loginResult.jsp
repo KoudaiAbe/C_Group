@@ -34,10 +34,12 @@
 		(function() {
 			let text = document.getElementById("resultText"),
 				reText = document.getElementById("returnTimer"),
-				name = <%= account.getName() %>;
 				result;
 
-			switch (<%= action %>)
+			let name = <%= account.getName() %>;
+			let action = <%= action %>;
+
+			switch (action)
 			{	// 新規作成ORログイン
 
 				case "get":
