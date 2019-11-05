@@ -98,7 +98,7 @@ public class Login extends HttpServlet {
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 
-		/* ADD @author 近藤 */
+		/* ADD if @author 近藤 */
 		if (!pass.contentEquals(request.getParameter("pass")))
 		{	// 確認欄とパスワードが一致しない場合は登録処理を行わずlogin.jspへ
 
