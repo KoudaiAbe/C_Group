@@ -34,7 +34,6 @@
 		(function() {
 			let text = document.getElementById("resultText"),
 				reText = document.getElementById("returnTimer"),
-				name = <%= account.getName() %>;
 				result;
 
 			switch (<%= action %>)
@@ -51,7 +50,7 @@
 			}	// switch end
 
 			// ログインorレジストの結果とアカウント名の表示
-			text.textContent = name +"さんの"+ result;
+			text.textContent = <%-- <%= account.getName() %> --%>"test" +"さんの"+ result;
 
 			let countSec = 3;
 
@@ -72,6 +71,7 @@
 			timer();
 		})();
 	</script>
+
 	<% session.removeAttribute("result"); %>
 </body>
 

@@ -16,7 +16,7 @@ implements Serializable
 	private String name;
 
 	/** アカウントパスワード */
-	private String password;
+	private String pass;
 
 	/*
 	 * ------------------Accessor----------------------
@@ -31,11 +31,11 @@ implements Serializable
 	{ this.name = name; }
 
 	/** JavaBeans Accessor */
-	public String getPassword()
-	{ return this.password; }
+	public String getPass()
+	{ return this.pass; }
 
 	/** JavaBeans Accessor */
-	public void setPassword(String password)
-	{ this.password = password; }
+	public void setPass(String pass)
+	{ this.pass = pass; }
 
 }
