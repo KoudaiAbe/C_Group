@@ -57,9 +57,6 @@ public class Login extends HttpServlet {
 		String action = "get";
 		session.setAttribute("action", action);
 
-		/*RequestDispatcher dispatcher = request.getRequestDispatcher("/loginResult.jsp");
-		dispatcher.forward(request, response);*/
-
 		//AccountDAO生成
 		AccountDAO  accountDAO = new AccountDAO();
 
