@@ -96,15 +96,6 @@
 			<a href="login.jsp" class="btn-border">LOGIN</a>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		(function() {
-			if (<%= account %> != null)
-			{	// もしログインしていればLOGINをLOGOUTにする
-
-			}	// if end
-		})();
-	</script>
 </body>
 
 </html>

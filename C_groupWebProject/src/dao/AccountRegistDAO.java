@@ -1,3 +1,4 @@
+
 package dao;
 
 import java.sql.Connection;
@@ -10,14 +11,28 @@ import java.util.List;
 
 import model.AccountBeans;
 
+/**
+ * アカウント新規作成を行うクラス。<br>
+ * サーブレットクラスよりBeansインスタンスを受け取り、それをもとにDBと照合する。<br>
+ * 登録しようとしているユーザ名がDBに存在しなければユーザ名とパスワードをDBに登録しTRUEを返し、<br>
+ * 既にDBにある場合は登録不可となり、FALSEを返す。
+ *
+ * @author 阿部/松本
+ */
 public class AccountRegistDAO
 extends ConstantDefinition
 {
+
 	public boolean createAccount(AccountBeans beans){
+
 		List<String> nameList = new ArrayList<>();
-System.out.print("dao");
+
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
+
+			/* 古いJavaだと下記の通り明示しないといけないが新しいものはいらない
+			Class.forName("org.postgresql.Driver"); */
+
 			//SELECT文の準備
 			String sql = "SELECT NAME FROM account";
 			PreparedStatement pStmt = con.prepareStatement(sql);
@@ -27,24 +42,20 @@ System.out.print("dao");
 
 			//SELECT文の結果をArrayListに格納
 			while(rs.next()) {
+
 				nameList.add(rs.getString("NAME"));
+
 			}
 
 			//for文でリストの中からnameが一致するか取得
 			for(String list : nameList) {
+
+				// 一致する場合は登録を拒絶
 				if(list.equals(beans.getName()) ){
+
 					return false;
+
 				}
-//					else {
-//						AccountBeans accountbeans = new AccountBeans();
-//						AccountBeansList.add(accountbeans);
-//						String sqladd = "SELECT NAME,PASS INSERT account";
-//					}
-
-				//引数を設定する
-//				AccountBeans accountbeans = new AccountBeans();
-//				AccountBeansList.add(accountbeans);
-
 			}
 
 			// DBにアカウントを登録する
@@ -56,9 +67,13 @@ System.out.print("dao");
 			pStmt2.executeQuery();
 
 		}catch(SQLException e) {
+
 			e.printStackTrace();
 			return false;
+
 		}
+
 		return true;
+
 	}
 }

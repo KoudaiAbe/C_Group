@@ -36,7 +36,10 @@
 				reText = document.getElementById("returnTimer"),
 				result;
 
-			switch (<%= action %>)
+			let name = <%= account.getName() %>;
+			let action = <%= action %>;
+
+			switch (action)
 			{	// 新規作成ORログイン
 
 				case "get":
@@ -50,7 +53,7 @@
 			}	// switch end
 
 			// ログインorレジストの結果とアカウント名の表示
-			text.textContent = <%-- <%= account.getName() %> --%>"test" +"さんの"+ result;
+			text.textContent = name +"さんの"+ result;
 
 			let countSec = 3;
 
@@ -71,7 +74,6 @@
 			timer();
 		})();
 	</script>
-
 	<% session.removeAttribute("result"); %>
 </body>
 

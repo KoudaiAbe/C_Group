@@ -1,3 +1,11 @@
+
+/* **CHANGED**
+ *
+ * param(check) add
+ *
+ * column59-71 add
+ */
+
 package dao;
 
 import java.sql.Connection;
@@ -10,35 +18,65 @@ import java.util.List;
 
 import model.AccountBeans;
 
-
+/**
+ * ログインの処理を行うクラス。<br>
+ * サーブレットクラスよりBeansインスタンスを受け取り、それをもとにDBと照合する。<br>
+ * インスタンス内の値とDB内に一致するものがあればTRUEを返し、一致しなければFALSEを返す。
+ *
+ * @author 阿部/松本
+ */
 public class AccountDAO
 extends ConstantDefinition{
 
 	public boolean getAccount(AccountBeans beans){
-		List<AccountBeans> AccountBeansList = new ArrayList<>();
 
-		//繝�繝ｼ繧ｿ繝吶�ｼ繧ｹ謗･邯�
+		List<AccountBeans> dataList = new ArrayList<>();
+
+		boolean check = false;	// 入力されたアカウント情報のチェック用
+
+		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
-			//SELECT譁�縺ｮ貅門ｙ
+
+			//SELECT文の準備
 			String sql = "SELECT NAME,PASS FROM account";
 			PreparedStatement pStmt = con.prepareStatement(sql);
 
-			//SELECT繧貞ｮ溯｡�
+			//SELECTを実行
 			ResultSet rs = pStmt.executeQuery();
 
-			//SELECT譁�縺ｮ邨先棡繧但rrayList縺ｫ譬ｼ邏�
+			//SELECT文の結果をArrayListに格納
 			while(rs.next()) {
-				String name = rs.getString("NAME");
-				String password = rs.getString("PASS");
 
-				//蠑墓焚繧定ｨｭ螳壹☆繧�
-				AccountBeans accountbeans = new AccountBeans();
-				AccountBeansList.add(accountbeans);
+				// Beansを用いてコレクションを作成
+				AccountBeans account = new AccountBeans();
+				account.setName(rs.getString("NAME"));
+				account.setPass(rs.getString("PASS"));
+
+				dataList.add(account);
+
 			}
+
+			/* ADD for @author 近藤 */
+			for (int index = 0 ; index < dataList.size(); index++)
+			{	// 入力されたユーザ名と一致するものを探す
+
+				if (dataList.get(index).getName().equals(beans.getName())
+					||dataList.get(index).getPass().equals(beans.getPass()))
+				{	// ユーザ名パスワードが一致すればログイン成功
+
+					check = true;
+					break;
+
+				}	// if end
+			}	// for end
+
 		}catch(SQLException e) {
+
 			e.printStackTrace();
 			return false;
+
 		}
-		return true;
+
+		return check;
 	}
 }

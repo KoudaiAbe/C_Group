@@ -65,31 +65,33 @@
 				}
 			});
 
-			if (action != null)
-			{	// リダイレクトされた時のエラーメッセージ
+			let action = <%= action %>;
 
-				let msg;
+			let msg;
 
-				switch (action)
-				{	// 新規作成ORログイン
+			switch (action)
+			{	// 新規作成ORログイン
 
-					case "get":
-						msg = "ユーザ名もしくはパスワードが間違っています。";
-						break;
+				case "get":
+					msg = "ユーザ名もしくはパスワードが間違っています。";
+					break;
 
-					case "post":
-						msg = "このユーザ名は既に使用されています。";
-						break;
+				case "post":
+					msg = "このユーザ名は既に使用されています。";
+					break;
 
-				}	// switch end
+				default:
+					msg = "";
+					break;
 
-				// エラーテキストの表示
-				let text = document.getElementById("errorText");
-				const p = document.createElement("p");
-				p.textContent = msg;
-				text.appendChild(p);
+			}	// switch end
 
-			}	// if end
+			// エラーテキストの表示
+			let text = document.getElementById("errorText");
+			const p = document.createElement("p");
+			p.textContent = msg;
+			text.appendChild(p);
+
 		})();
 	</script>
 	<% session.removeAttribute("result"); %>
