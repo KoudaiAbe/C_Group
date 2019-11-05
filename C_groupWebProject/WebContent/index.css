@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+
+.linkImg {
+	background-color: aqua;
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	width: 1000px;
+	height: 800px;
+}
+
+.lingImg > a {
+	margin: 25px auto;display: 
+}

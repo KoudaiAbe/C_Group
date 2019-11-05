@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<jsp:include page="/HEADER.html"/>
+	<jsp:include page="/HEADER.jsp"/>
 	<div class="backGround"></div>
 
 	<div class="topText">

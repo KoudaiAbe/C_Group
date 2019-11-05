@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.tab-group {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	right: 0px;
+	margin: 0px auto;
+	width: 400px;
+	display: flex;
+    justify-content: center;
+}
+
+.tab{
+    flex-grow: 1;
+    padding: 5px;
+    list-style: none;
+    border: solid 1px #CCC;
+	color: #9ec34b;
+	font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.panel-group {
+	position: absolute;
+	border: solid 1px #CCC;
+    border-top: none;
+    background: #D0F08A;
+	top: 300px;
+	left: 0px;
+	right: 0px;
+	margin: 0px auto;
+	width: 300px;
+	height: 200px;
+	line-height: 2em;
+}
+
+.panel{
+    display: none;
+}
+.tab.is-active{
+    background: #9ec34b;
+    color: #FFF;
+    transition: all 0.2s ease-out;
+}
+.panel.is-show{
+    display: block;
+}
+
+form > input[type="submit"] {
+	width: 180px;
+	height: 40px;
+	font-size: 20px;
+}
