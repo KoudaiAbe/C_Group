@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+System.out.println("get");//TODO DEBUG
 		//Login.jspのNameとPassを受け取る。
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
@@ -93,7 +93,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println("post");//TODO DEBUG
 		//LoginページのNameとPassを受け取る。
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
