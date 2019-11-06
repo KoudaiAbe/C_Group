@@ -34,6 +34,13 @@ extends ConstantDefinition{
 
 		boolean check = false;	// 入力されたアカウント情報のチェック用
 
+		//クラスをロード
+		try {
+			Class.forName("org.postgresql.Driver");
+			}catch(ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
 

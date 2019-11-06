@@ -36,8 +36,8 @@
 				reText = document.getElementById("returnTimer"),
 				result;
 
-			let name = <%= account.getName() %>;
-			let action = <%= action %>;
+			let name = "test";
+			let action = "get";
 
 			switch (action)
 			{	// 新規作成ORログイン
