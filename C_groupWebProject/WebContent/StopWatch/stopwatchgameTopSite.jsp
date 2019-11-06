@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>カウントゲームの紹介</title>
+<jsp:include page="/HEADER.jsp"/>
 </head>
 <body>
-<jsp:include page="/HEADER.jsp"/>
 <p>
 スタートボタンを押して心の中で10秒数えてピッタリで止める
 ただそれだけだ…
