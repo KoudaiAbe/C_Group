@@ -37,9 +37,6 @@ extends ConstantDefinition
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
 
-			/* 古いJavaだと下記の通り明示しないといけないが新しいものはいらない
-			Class.forName("org.postgresql.Driver"); */
-
 			//SELECT文の準備
 			String sql = "SELECT NAME FROM account";
 			PreparedStatement pStmt = con.prepareStatement(sql);
