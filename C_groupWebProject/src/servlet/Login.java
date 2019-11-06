@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-System.out.println("get");//TODO DEBUG
+
 		//Login.jspのNameとPassを受け取る。
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
@@ -51,7 +51,7 @@ System.out.println("get");//TODO DEBUG
 		account.setName(name);
 		account.setPass(pass);
 		HttpSession session = request.getSession();
-		session.setAttribute("accounBeans",account);
+		session.setAttribute("accountBeans",account);
 
 		// セッションスコープへ処理内容を送信
 		String action = "get";
@@ -74,7 +74,7 @@ System.out.println("get");//TODO DEBUG
 
 			//ログイン失敗
 			// セッションスコープとBeansを破棄
-			session.removeAttribute("accounBeans");
+			session.removeAttribute("accountBeans");
 			account = null;
 
 			// login.jspへ
@@ -93,7 +93,7 @@ System.out.println("get");//TODO DEBUG
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("post");//TODO DEBUG
+
 		//LoginページのNameとPassを受け取る。
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
@@ -112,7 +112,7 @@ System.out.println("get");//TODO DEBUG
 		account.setName(name);
 		account.setPass(pass);
 		HttpSession session = request.getSession();
-		session.setAttribute("accounBeans",account);
+		session.setAttribute("accountBeans",account);
 
 		// セッションスコープへ処理内容を送信
 		String action = "post";
@@ -135,7 +135,7 @@ System.out.println("get");//TODO DEBUG
 
 			//被るので登録不可
 			// セッションスコープとBeansを破棄
-			session.removeAttribute("accounBeans");
+			session.removeAttribute("accountBeans");
 			account = null;
 
 			// login.jspへ

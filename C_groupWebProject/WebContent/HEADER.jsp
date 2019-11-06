@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="model.AccountBeans" %>
-    <% AccountBeans account = (AccountBeans) request.getAttribute("accountBeans"); %>
+    <% AccountBeans account = (AccountBeans) session.getAttribute("accountBeans"); %>
 <!DOCTYPE html>
 <html>
 

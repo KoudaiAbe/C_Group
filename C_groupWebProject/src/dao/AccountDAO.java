@@ -34,6 +34,13 @@ extends ConstantDefinition{
 
 		boolean check = false;	// 入力されたアカウント情報のチェック用
 
+		//クラスをロード
+		try {
+			Class.forName("org.postgresql.Driver");
+			}catch(ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
 
@@ -61,7 +68,7 @@ extends ConstantDefinition{
 			{	// 入力されたユーザ名と一致するものを探す
 
 				if (dataList.get(index).getName().equals(beans.getName())
-					||dataList.get(index).getPass().equals(beans.getPass()))
+					&&dataList.get(index).getPass().equals(beans.getPass()))
 				{	// ユーザ名パスワードが一致すればログイン成功
 
 					check = true;
