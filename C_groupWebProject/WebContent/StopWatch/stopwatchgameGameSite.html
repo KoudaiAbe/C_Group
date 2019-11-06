@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>StopWatch</title>
+<link rel="stylesheet" href="stopwatchgameGameSite.css" type="text/css">
+</head>
+<header>
+	<h1 class="headline">
+		<a>カウントゲーム</a>
+	</h1>
+</header>
+<body>
+	<div class="container">
+		<h1>10秒ピッタリで止めろ！</h1>
+		<button id="start" onclick="startButton">START</button>
+		<button id="stop" onclick="endButton" disabled>STOP</button>
+		<button id="reset">RESET</button>
+		<p>結果</p>
+		<div id="point" class="standby">0.000</div>
+		<script src="stopwatchgame.js"></script>
+	</div>
+	<footer>
+		<p>Copyright(C) 2019 Abe,Allright Reserved.</p>
+	</footer>
+</body>
+</html>
