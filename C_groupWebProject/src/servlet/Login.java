@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
 		account.setName(name);
 		account.setPass(pass);
 		HttpSession session = request.getSession();
-		session.setAttribute("accounBeans",account);
+		session.setAttribute("accountBeans",account);
 
 		// セッションスコープへ処理内容を送信
 		String action = "get";
@@ -74,7 +74,7 @@ public class Login extends HttpServlet {
 
 			//ログイン失敗
 			// セッションスコープとBeansを破棄
-			session.removeAttribute("accounBeans");
+			session.removeAttribute("accountBeans");
 			account = null;
 
 			// login.jspへ
@@ -112,7 +112,7 @@ public class Login extends HttpServlet {
 		account.setName(name);
 		account.setPass(pass);
 		HttpSession session = request.getSession();
-		session.setAttribute("accounBeans",account);
+		session.setAttribute("accountBeans",account);
 
 		// セッションスコープへ処理内容を送信
 		String action = "post";
@@ -135,7 +135,7 @@ public class Login extends HttpServlet {
 
 			//被るので登録不可
 			// セッションスコープとBeansを破棄
-			session.removeAttribute("accounBeans");
+			session.removeAttribute("accountBeans");
 			account = null;
 
 			// login.jspへ

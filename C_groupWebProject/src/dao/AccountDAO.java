@@ -68,7 +68,7 @@ extends ConstantDefinition{
 			{	// 入力されたユーザ名と一致するものを探す
 
 				if (dataList.get(index).getName().equals(beans.getName())
-					||dataList.get(index).getPass().equals(beans.getPass()))
+					&&dataList.get(index).getPass().equals(beans.getPass()))
 				{	// ユーザ名パスワードが一致すればログイン成功
 
 					check = true;

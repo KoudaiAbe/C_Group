@@ -43,7 +43,7 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
+	<script>
 		(function() {
 			document.addEventListener('DOMContentLoaded', function() {
 				// タブに対してクリックイベントを適用
@@ -65,7 +65,7 @@
 				}
 			});
 
-			let action = <%= action %>;
+			let action = '<%= action %>';
 
 			let msg;
 
@@ -94,7 +94,7 @@
 
 		})();
 	</script>
-	<% session.removeAttribute("result"); %>
+	<% session.removeAttribute("action"); %>
 </body>
 
 </html>

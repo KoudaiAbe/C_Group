@@ -30,14 +30,14 @@
 		<p id="returnTimer" style="font-size: 15px;">/returnTimer/</p>
 	</div>
 
-	<script type="text/javascript">
+	<script>
 		(function() {
 			let text = document.getElementById("resultText"),
 				reText = document.getElementById("returnTimer"),
 				result;
 
-			let name = "test";
-			let action = "get";
+			let name = '<%= account.getName() %>';
+			let action = '<%= action %>';
 
 			switch (action)
 			{	// 新規作成ORログイン
@@ -74,7 +74,7 @@
 			timer();
 		})();
 	</script>
-	<% session.removeAttribute("result"); %>
+	<% session.removeAttribute("action"); %>
 </body>
 
 </html>
