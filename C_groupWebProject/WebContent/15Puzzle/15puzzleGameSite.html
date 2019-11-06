@@ -31,6 +31,11 @@
 		<script type="text/javascript" src="15puzzle.js"></script>
 	</div>
 
+	<form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post" onsubmit="doSomething();return false;">
+		<input type="text" name="game" id="gameName">
+		<input type="text" name="score" id="gameScore">
+	</form>
+
 	<a href="15puzzleTopSite.jsp">
 		<img src="15PuzzleTexture/BackButton.png" width="241" height="81" alt="戻る"/>
 	</a>

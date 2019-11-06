@@ -74,6 +74,10 @@
 			border-color: #cbe585;
 			color: #FFF;
 		}
+
+		.webCommon_Header > .button > .hidden {
+			display: none;
+		}
 	-->
 	</style>
 </head>
@@ -81,10 +85,17 @@
 <body>
 	<%
 	String name;
+	boolean login = false;
+
 	if (account == null)
 	{ name = "ゲスト"; }
 	else
-	{ name = account.getName(); }
+	{
+
+		login = true;
+		name = account.getName();
+
+	}
 	%>
 	<div class="webCommon_Header">
 		<h1>ヘッドテキスト</h1>
@@ -93,9 +104,27 @@
 			<a href="index.jsp" class="btn-border">HOME</a>
 			<a href="mypage.jsp" class="btn-border">MY PAGE</a>
 			<a href="ranking.jsp" class="btn-border">RANKING</a>
-			<a href="login.jsp" class="btn-border">LOGIN</a>
+			<a href="login.jsp" class="swap btn-border">LOGIN</a>
+			<a href="logout.jsp" class="swap btn-border hidden">LOGOUT</a>
 		</div>
 	</div>
+
+	<script>
+		(function() {
+			let login = '<%= login %>';
+
+			if (login === true)
+			{	// ログインしていればLOGINボタンをLOGOUTボタンへ変更
+
+				const buttons = document.getElementsByClassName("swap");
+
+				// LOGINボタンををLOGOUTボタンへ変更
+				document.getElementsByClassName('hidden')[0].classList.remove('hidden');
+				buttons[0].classList.add('hidden');
+
+			}
+		})();
+	</script>
 </body>
 
 </html>
