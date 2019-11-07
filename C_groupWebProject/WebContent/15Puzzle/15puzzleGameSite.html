@@ -13,7 +13,7 @@
 	<div align="center" class="backGround"></div>
 
 	<div id="gameWindow">
-		<img id="restart" src="15PuzzleTexture/RestartButton.png" width="40" height="40" alt="リスタート"/>
+		<img id="restart" src="15PuzzleTexture/RestartButton.png" alt="リスタート"/>
 
 		<div id="frontWindow">
 			<img src="15PuzzleTexture/DifficultText.png" alt="難易度をえらんでね">
@@ -30,13 +30,13 @@
 		</canvas>
 	</div>
 
-	<form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post" onsubmit="doSomething();return false;">
+	<img id="back" src="15PuzzleTexture/BackButton.png" alt="戻る"/>
+
+	<form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post">
 		<input type="text" name="game" id="gameName">
 		<input type="text" name="score" id="gameScore">
 		<input type="text" name="url" id="url">
 	</form>
-
-	<img id="back" src="15PuzzleTexture/BackButton.png" width="241" height="81"alt="戻る"/>
 
 	<script type="text/javascript" src="15puzzle.js"></script>
 </body>

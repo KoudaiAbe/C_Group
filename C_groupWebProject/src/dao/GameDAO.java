@@ -30,9 +30,6 @@ public class GameDAO extends ConstantDefinition{
 
 	public void postData(AccountBeans account, GameBeans data){
 
-		System.out.println(account.getName());
-		System.out.println(data.getGame());
-
 		//クラスをロード
 		try {
 			Class.forName("org.postgresql.Driver");

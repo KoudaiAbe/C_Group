@@ -48,11 +48,6 @@ public class GameInspector extends HttpServlet {
 		String game = request.getParameter("game");
 		String score = request.getParameter("score");
 
-		System.out.println(score);
-		if (score == null)
-		{ dispatcher.forward(request, response); }
-
-
 		/*プレイ日時としてリアルタイム取得。*/
 
 		Date d = new Date();

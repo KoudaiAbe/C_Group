@@ -41,17 +41,13 @@
 		});
 	});
 
-	/*submits.forEach((array) => {
-		array.addEventListener("click", function(e) {
-			submit();
-		})
-	});*/
+
 	document.getElementById("restart"),addEventListener("click", function(e) {
-		submit("/15Puzzle/15puzzleGameSite.html");
+		submit("/C_groupWebProject/15Puzzle/15puzzleGameSite.html");
 	});
 
 	document.getElementById("back"),addEventListener("click", function(e) {
-		submit("/15Puzzle/15puzzleTopSite.jsp");
+		submit("/C_groupWebProject/15Puzzle/15puzzleTopSite.jsp");
 	});
 
 
@@ -407,15 +403,16 @@
 
 		console.log("click");
 
-		document.getElementById("gameName").value = "15Puzzle";
-		document.getElementById("gameScore").value = points;
-		document.getElementById("url").value = url;
-		document.querySelector("form").submit();
 		if (result)
 		{	// ゲームが終了していればデータを送信する
 
+			document.getElementById("gameName").value = "15Puzzle";
+			document.getElementById("gameScore").value = points;
+			document.getElementById("url").value = url;
+			document.querySelector("form").submit();
 
+		} else
+		{ location.href = url; }
 
-		}	// if end
 	}	// submit function end
 }	/* EOF */
