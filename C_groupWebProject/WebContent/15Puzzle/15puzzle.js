@@ -367,7 +367,7 @@
 			div.setAttribute("id", "frontWindow");
 			img.src = "15PuzzleTexture/ClearText.png";
 			img.alt = "ゲームクリア";
-			text.innerHTML = '<font size="20">'+ points +'</font>点';
+			text.innerHTML = '<font size="7">'+ points +'</font>点';
 
 			document.getElementById("gameWindow").insertBefore(div, gameText.level);
 			div.appendChild(img);

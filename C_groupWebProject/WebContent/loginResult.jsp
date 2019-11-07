@@ -13,10 +13,17 @@
 	<!--
 		.textArea {
 			position: absolute;
-			top: 250px;
+			border: solid 1px #CCC;
+			border-top: none;
+			background: #D0F08A;
+			text-align: center;
+			top: 300px;
 			left: 0px;
 			right: 0px;
 			margin: 0px auto;
+			width: 400px;
+			height: 200px;
+			line-height: 2em;
 		}
 	-->
 	</style>
