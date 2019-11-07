@@ -106,11 +106,11 @@
 		<h1>ヘッドテキスト</h1>
 		<h2>ようこそ<%= name %>さん！</h2>
 		<div class="button">
-			<a href="index.jsp" class="btn-border">HOME</a>
-			<a href="mypage.jsp" class="btn-border">MY PAGE</a>
-			<a href="ranking.jsp" class="btn-border">RANKING</a>
-			<a href="login.jsp" class="btn-border" id="webCommon_login">LOGIN</a>
-			<a href="logout.jsp" class="btn-border hidden" id="webCommon_logout">LOGOUT</a>
+			<a href="/C_groupWebProject/index.jsp" class="btn-border">HOME</a>
+			<a href="/C_groupWebProject/mypage.jsp" class="btn-border">MY PAGE</a>
+			<a href="/C_groupWebProject/ranking.jsp" class="btn-border">RANKING</a>
+			<a href="/C_groupWebProject/login.jsp" class="btn-border" id="webCommon_login">LOGIN</a>
+			<a href="/C_groupWebProject/logout.jsp" class="btn-border hidden" id="webCommon_logout">LOGOUT</a>
 		</div>
 	</div>
 
