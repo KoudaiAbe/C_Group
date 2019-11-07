@@ -123,14 +123,12 @@
 			if (<%= check %>)
 			{	// ログインしていればLOGOUTボタンを表示
 
-				console.log("accountUN_NULL");
 				document.getElementsByClassName('hidden')[0].classList.remove('hidden');
 				login.classList.add('hidden');
 
 			} else
 			{	// ログインしていなければLOGINボタンを表示
 
-				console.log("accountNULL");
 				document.getElementsByClassName('hidden')[0].classList.remove('hidden');
 				logout.classList.add('hidden');
 

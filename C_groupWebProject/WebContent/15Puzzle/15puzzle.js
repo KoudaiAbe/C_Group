@@ -11,12 +11,21 @@
 'use strict';
 {
 
+	// ゲームの進行状況
+	let result = false;
+
 	// レベル選択ボタンの要素を取得
-	const level = [
+	const levels = [
 		document.getElementById("startButton1"),
 		document.getElementById("startButton2"),
 		document.getElementById("startButton3")
-		];
+	];
+
+	// ページ移動ボタンの要素を取得
+	const submits = [
+		document.getElementById("restart"),
+		document.getElementById("back")
+	];
 
 	// 表示するテキスト要素を取得
 	const gameText = {
@@ -25,10 +34,19 @@
 		count: document.getElementById("countText")
 	};
 
-	level.forEach((array, index) => {
+	// レベルボタンにイベントリスナーを設定
+	levels.forEach((array, index) => {
 		array.addEventListener("click", function(e) {
 			gameStart(index + 1);
 		});
+	});
+
+	// ページ移動ボタンにイベントリスナーを設定
+	submits.forEach((array) => {
+		console.log("リスナー");
+		array.addEventListener("click", function(e) {
+			submit();
+		})
 	});
 
 	function gameStart(level)
@@ -37,7 +55,6 @@
         let canvas = document.getElementById("stage"),
 			moveCount = level * (level + 7 + (level * (level - 1))),
 			clickCount = 0,
-			result = false,
         	context,
         	image,
         	tiles = new Array(4).fill(null).map(() => new Array(4).fill(null));
@@ -373,12 +390,22 @@
 			div.appendChild(img);
 			div.appendChild(text);
 
-			// ゲームのデータを送信
+		}	// gameClear function end
+	}	// gameStart function end
+
+
+
+	function submit()
+	{	// ページ移動ボタンが押されたらゲームのデータを送信
+
+		console.log("さぶみっと");
+		if (result)
+		{	// ゲームが終了していればデータを送信する
+
 			document.getElementById("gameName").value = "15Puzzle";
 			document.getElementById("gameScore").value = points;
 			document.querySelector("form").submit();
 
-		}	// gameClear function end
-	}	// gameStart function end
-
+		}	// if end
+	}	// submit function end
 }	/* EOF */
