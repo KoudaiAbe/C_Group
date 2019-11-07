@@ -21,7 +21,7 @@
 		document.getElementById("startButton3")
 	];
 
-	// ページ移動ボタンの要素を取得
+	/*const submits = Array.from(document.getElementsByClassName("submit"));*/
 	const submits = [
 		document.getElementById("restart"),
 		document.getElementById("back")
@@ -41,13 +41,14 @@
 		});
 	});
 
-	// ページ移動ボタンにイベントリスナーを設定
 	submits.forEach((array) => {
 		console.log("リスナー");
 		array.addEventListener("click", function(e) {
 			submit();
 		})
 	});
+
+
 
 	function gameStart(level)
 	{	// レベルの選択ボタンが押されたら実行
@@ -398,10 +399,11 @@
 	function submit()
 	{	// ページ移動ボタンが押されたらゲームのデータを送信
 
-		console.log("さぶみっと");
+		console.log("click");
 		if (result)
 		{	// ゲームが終了していればデータを送信する
 
+			console.log("submit");
 			document.getElementById("gameName").value = "15Puzzle";
 			document.getElementById("gameScore").value = points;
 			document.querySelector("form").submit();
