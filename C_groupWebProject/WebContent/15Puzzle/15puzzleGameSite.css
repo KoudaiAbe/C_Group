@@ -19,7 +19,7 @@
 	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", "Osaka-mono", "monospace";
 }
 
-#gameWindow > a[href=""] {
+#restart {
 	position: absolute;
 	top: 30px;
 	right: 30px;
@@ -63,7 +63,7 @@
 	left: 35px;
 }
 
-a[href="15puzzleTopSite.jsp"] {
+#back {
 	position: absolute;
 	top: 700px;
 	left: 0px;

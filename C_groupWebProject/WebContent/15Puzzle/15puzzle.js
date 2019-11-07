@@ -12,7 +12,8 @@
 {
 
 	// ゲームの進行状況
-	let result = false;
+	let result = false,
+		points;
 
 	// レベル選択ボタンの要素を取得
 	const levels = [
@@ -21,11 +22,10 @@
 		document.getElementById("startButton3")
 	];
 
-	/*const submits = Array.from(document.getElementsByClassName("submit"));*/
-	const submits = [
+	/*const submits = [
 		document.getElementById("restart"),
 		document.getElementById("back")
-	];
+	];*/
 
 	// 表示するテキスト要素を取得
 	const gameText = {
@@ -41,11 +41,17 @@
 		});
 	});
 
-	submits.forEach((array) => {
-		console.log("リスナー");
+	/*submits.forEach((array) => {
 		array.addEventListener("click", function(e) {
 			submit();
 		})
+	});*/
+	document.getElementById("restart"),addEventListener("click", function(e) {
+		submit("/15Puzzle/15puzzleGameSite.html");
+	});
+
+	document.getElementById("back"),addEventListener("click", function(e) {
+		submit("/15Puzzle/15puzzleTopSite.jsp");
 	});
 
 
@@ -369,7 +375,7 @@
             console.log("じかんD"+ timeDeduction);
 
 			// 手数と経過時間により得点減少率を加算計算方式で合計し最大得点から減算する
-            let points = Math.round(levelPoints() * (1 - ((moveDeduction + timeDeduction) / 100)));
+            points = Math.round(levelPoints() * (1 - ((moveDeduction + timeDeduction) / 100)));
 
 			console.log(`Game Clear!\n\nプレイ時間:${sec}.${msec}秒\n移動回数:${clickCount}回\n得点:${points}`);
 
@@ -396,17 +402,19 @@
 
 
 
-	function submit()
+	function submit(url)
 	{	// ページ移動ボタンが押されたらゲームのデータを送信
 
 		console.log("click");
+
+		document.getElementById("gameName").value = "15Puzzle";
+		document.getElementById("gameScore").value = points;
+		document.getElementById("url").value = url;
+		document.querySelector("form").submit();
 		if (result)
 		{	// ゲームが終了していればデータを送信する
 
-			console.log("submit");
-			document.getElementById("gameName").value = "15Puzzle";
-			document.getElementById("gameScore").value = points;
-			document.querySelector("form").submit();
+
 
 		}	// if end
 	}	// submit function end

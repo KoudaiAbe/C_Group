@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,17 +34,23 @@ public class GameInspector extends HttpServlet {
 		HttpSession session = request.getSession();
 		AccountBeans account = null;
 
+		RequestDispatcher dispatcher = request.getRequestDispatcher(request.getParameter("url"));
+
 		try {
 
 			account = (AccountBeans) session.getAttribute("accountBeans");
 			account.getName();
 
 		}catch(NullPointerException ex) {
-			return;
+			dispatcher.forward(request, response);
 		}
 
 		String game = request.getParameter("game");
 		String score = request.getParameter("score");
+
+		System.out.println(score);
+		if (score == null)
+		{ dispatcher.forward(request, response); }
 
 
 		/*プレイ日時としてリアルタイム取得。*/
@@ -73,6 +80,7 @@ public class GameInspector extends HttpServlet {
 		GameDAO gameDAO = new GameDAO();
 		gameDAO.postData(account,data);
 
+		dispatcher.forward(request, response);
 	}
 
 }
