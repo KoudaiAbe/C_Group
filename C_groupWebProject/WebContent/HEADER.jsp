@@ -113,7 +113,7 @@
 		(function() {
 			let login = '<%= login %>';
 
-			if (login === true)
+			if (login)
 			{	// ログインしていればLOGINボタンをLOGOUTボタンへ変更
 
 				const buttons = document.getElementsByClassName("swap");
