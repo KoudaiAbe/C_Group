@@ -49,6 +49,9 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("accounBeans",accounBeans);
 
+		//ページに処理内容を送る
+		String action = "get";
+		session.setAttribute("action",action);
 
 		//AccountDAO生成
 		AccountDAO  accountDAO = new AccountDAO();
@@ -89,24 +92,32 @@ public class Login extends HttpServlet {
 		AccountBeans accounBeans = new AccountBeans();
 		accounBeans.setName(name);
 		accounBeans.setPass(pass);
+		HttpSession session = request.getSession();
+		session.setAttribute("accounBeans",accounBeans);
+
+		//ページに処理内容を送る
+		String action = "post";
+		session.setAttribute("action",action);
+
 		//既存アカウント名と被らないように新規アカウントを保存。
 		boolean check = accountRegistDAO.createAccount(accounBeans);
 
 		if(check) {
 
 			//被らないので、新規登録。AccountBeansnに保存。
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("accounBeans",accounBeans);
+
 
 			//新規アカウント登録後、ログイン完了画面へ
 			RequestDispatcher dispatcher =
-					request.getRequestDispatcher("/loginResult.jsp");
+			request.getRequestDispatcher("/loginResult.jsp");
 			dispatcher.forward(request, response);
+
+
 
 		}else {
 
 			//被るので登録出来ず、リダイレクト。
+			session.removeAttribute("accounBeans");
 			accounBeans = null;
 			response.sendRedirect("/login.jsp");
 

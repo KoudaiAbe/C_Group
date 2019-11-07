@@ -12,18 +12,74 @@ public class GameBeans
 implements Serializable
 {
 
-	/** アカウントID名 */
+	/** ゲーム名 */
 	private String game;
 
-	/** アカウントパスワード */
-	private String date;
-
-	/** アカウントパスワード */
+	/** スコア */
 	private String score;
+
+	private String year;
+	private String month;
+	private String day;
+	private String hour;
+	private String minute;
+	private String second;
+
+
+
+
 
 	/*
 	 * ------------------Accessor----------------------
 	 */
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
+
+	public void setMinute(String minute) {
+		this.minute = minute;
+	}
+
+	public void setSecond(String second) {
+		this.second = second;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public String getHour() {
+		return hour;
+	}
+
+	public String getMinute() {
+		return minute;
+	}
+
+	public String getSecond() {
+		return second;
+	}
 
 	/** JavaBeans Accessor */
 	public String getGame()
@@ -32,14 +88,6 @@ implements Serializable
 	/** JavaBeans Accessor */
 	public void setGame(String game)
 	{ this.game = game; }
-
-	/** JavaBeans Accessor */
-	public String getDate()
-	{ return this.date; }
-
-	/** JavaBeans Accessor */
-	public void setDate(String date)
-	{ this.date = date; }
 
 	/** JavaBeans Accessor */
 	public String getScore()
