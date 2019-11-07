@@ -28,7 +28,7 @@ import model.AccountBeans;
 public class AccountDAO
 extends ConstantDefinition{
 
-	public boolean getAccount(AccountBeans beans){
+	public boolean getAccount(AccountBeans account){
 
 		List<AccountBeans> dataList = new ArrayList<>();
 
@@ -55,11 +55,11 @@ extends ConstantDefinition{
 			while(rs.next()) {
 
 				// Beansを用いてコレクションを作成
-				AccountBeans account = new AccountBeans();
-				account.setName(rs.getString("NAME"));
-				account.setPass(rs.getString("PASS"));
+				AccountBeans accountList = new AccountBeans();
+				accountList.setName(rs.getString("NAME"));
+				accountList.setPass(rs.getString("PASS"));
 
-				dataList.add(account);
+				dataList.add(accountList);
 
 			}
 
@@ -67,8 +67,8 @@ extends ConstantDefinition{
 			for (int index = 0 ; index < dataList.size(); index++)
 			{	// 入力されたユーザ名と一致するものを探す
 
-				if (dataList.get(index).getName().equals(beans.getName())
-					&&dataList.get(index).getPass().equals(beans.getPass()))
+				if (dataList.get(index).getName().equals(account.getName())
+					&&dataList.get(index).getPass().equals(account.getPass()))
 				{	// ユーザ名パスワードが一致すればログイン成功
 
 					check = true;

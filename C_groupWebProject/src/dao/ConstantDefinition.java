@@ -16,7 +16,7 @@ public abstract class ConstantDefinition
 	protected final String ACCOUNT_URL = "jdbc:postgresql://localhost:5432/game_db";
 
 	/** ゲームデータ管理DBのURL */
-	protected final String GAME_URL = "#";
+	protected final String GAME_URL = "jdbc:postgresql://localhost:5432/game_db";
 
 	/** DBへアクセスするユーザ名 */
 	protected final String DRIVER_USER = "postgres";
