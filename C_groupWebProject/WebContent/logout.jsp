@@ -30,7 +30,7 @@
 
 <body>
 	<jsp:include page="/HEADER.jsp"/>
-	
+
 	<div class="msgBox">
 		<p>
 			<%= account.getName() %>さんのログアウト処理が<br>
@@ -38,12 +38,13 @@
 		</p>
 		<p id="returnTimer" style="font-size: 15px;">/returnTimer/</p>
 	</div>
-	
-	<% session.removeAttribute("account"); %>
-	
+
+	<% session.removeAttribute("accountBeans"); %>
+
 	<script>
 	(function(){
-		let countSec = 3;
+		let countSec = 3,
+			reText = document.getElementById("returnTimer");
 
 		// 3秒後にTOPページへ移動
 		const timer = () => {
@@ -60,7 +61,7 @@
 		};
 
 		timer();
-	})();	
+	})();
 	</script>
 </body>
 

@@ -85,14 +85,19 @@
 <body>
 	<%
 	String name;
-	boolean login = false;
+	boolean check;
 
 	if (account == null)
-	{ name = "ゲスト"; }
+	{
+
+		check = false;
+		name = "ゲスト";
+
+	}
 	else
 	{
 
-		login = true;
+		check = true;
 		name = account.getName();
 
 	}
@@ -104,23 +109,30 @@
 			<a href="index.jsp" class="btn-border">HOME</a>
 			<a href="mypage.jsp" class="btn-border">MY PAGE</a>
 			<a href="ranking.jsp" class="btn-border">RANKING</a>
-			<a href="login.jsp" class="swap btn-border">LOGIN</a>
-			<a href="logout.jsp" class="swap btn-border hidden">LOGOUT</a>
+			<a href="login.jsp" class="btn-border" id="webCommon_login">LOGIN</a>
+			<a href="logout.jsp" class="btn-border hidden" id="webCommon_logout">LOGOUT</a>
 		</div>
 	</div>
 
 	<script>
 		(function() {
-			let login = '<%= login %>';
 
-			if (login)
-			{	// ログインしていればLOGINボタンをLOGOUTボタンへ変更
+			const login = document.getElementById("webCommon_login"),
+				  logout = document.getElementById("webCommon_logout");
 
-				const buttons = document.getElementsByClassName("swap");
+			if (<%= check %>)
+			{	// ログインしていればLOGOUTボタンを表示
 
-				// LOGINボタンををLOGOUTボタンへ変更
+				console.log("accountUN_NULL");
 				document.getElementsByClassName('hidden')[0].classList.remove('hidden');
-				buttons[0].classList.add('hidden');
+				login.classList.add('hidden');
+
+			} else
+			{	// ログインしていなければLOGINボタンを表示
+
+				console.log("accountNULL");
+				document.getElementsByClassName('hidden')[0].classList.remove('hidden');
+				logout.classList.add('hidden');
 
 			}
 		})();
