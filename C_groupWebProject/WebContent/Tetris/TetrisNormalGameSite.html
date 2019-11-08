@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>テトリス風ゲーム</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="TetrisGameStylesheet.css">
+	<script type="text/javascript" src="JavaScript/TetrisNormal.js"></script>
+
+<body>
+	<div class="cat"></div>
+     <h1>テトリス風ゲーム　<span>NORMAL</span></h1>
+     <div class="wrapper-container">
+        <span class="tetris-container">
+             <canvas id="stage" width="250px" height="500px" style="background-color:black;">
+            </canvas>
+             <span class="tetris-panel-container">
+              <p> Next: </p>
+                <canvas id="next" width="150px" height="150px" style="background-color:black;">
+                </canvas>
+              <p>Scores:<span id="lines">0</span></p>
+              <p><span id="message"></span></p>
+              <div class="tetris-panel-container-padding"></div>
+              <table class="tetris-button-panel">
+                <tr>
+                  <td></td>
+                   <td id="tetris-rotate-button" class="tetris-button">↻</td>
+                 <td></td>
+                 </tr>
+                <tr>
+                  <td id="tetris-move-left-button"class="tetris-button">←</td>
+                 <td id="tetris-fall-button"class="tetris-button">↓</td>
+                  <td id="tetris-move-right-button"class="tetris-button">→</td>
+                 </tr>
+               </table>
+             </span>
+        </span>
+        <a href="http://localhost:8090/HelloGithub/Tetris/TetrisTopSite.jsp" class="reset">もどる</a>
+     </div>
+      <script>
+        var tetris = new Tetris();
+        tetris.startGame();
+      </script>
+
+    <form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post">
+		<input type="text" name="game" id="gameName">
+		<input type="text" name="score" id="gameScore">
+	</form>
+
+    </body>
+ </html>

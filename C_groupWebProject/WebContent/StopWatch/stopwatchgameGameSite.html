@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>カウントゲーム</title>
+<link rel="stylesheet" href="stopwatchgameGameSite.css" type="text/css">
+</head>
+<header>
+	<h1 class="headline">
+		<a>カウントゲーム</a>
+	</h1>
+</header>
+<body>
+
+	<div class="container">
+		<h1>10秒ピッタリで止めろ！</h1>
+		<button id="start" onclick="startButton">START</button>
+		<button id="stop" onclick="endButton" disabled>STOP</button>
+		<button id="reset">RESET</button>
+		<P>結果は…</P>
+		<div id="point" class="standby">0.000</div>
+		<script src="stopwatchgame.js"></script>
+
+
+		<button class="btn" type="button"
+			onclick="location.href='stopwatchgameTopSite.jsp'">Back</button>
+
+	</div>
+
+	<form style="visibility: hidden;"
+		action="/C_groupWebProject/GameInspector" method="post">
+		<input type="text" name="game" id="gameName"> <input
+			type="text" name="score" id="gameScore">
+		//value="#"に移動先URLを記述 <input type="text" name="url" id="url" value="#">
+	</form>
+</body>
+</html>

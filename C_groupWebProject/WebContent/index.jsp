@@ -16,8 +16,8 @@
 		<h1 style="font-size: 40px;">GAME SELECT</h1>
 		<a href="#"><img src="TOPimg/DustBoxGame.png" width="300" height="300" alt="DUSTBOX GAME"/></a>
 		<a href="15Puzzle/15puzzleTopSite.jsp"><img src="TOPimg/15Puzzle.png" width="300" height="300" alt="15Puzzle"/></a>
-		<a href="#"><img src="TOPimg/_DUMMY.png" width="300" height="300" alt=""/></a>
-		<a href="#"><img src="TOPimg/_DUMMY.png" width="300" height="300" alt=""/></a>
+		<a href="StopWatch/stopwatchgameTopSite.jsp"><img src="TOPimg/10sec" width="300" height="300" alt="StopWatch"/></a>
+		<a href="Tetris/TetrisTopSite.jsp"><img src="TOPimg/_DUMMY.png" width="300" height="300" alt="Tetris"/></a>
 		<a href="#"><img src="TOPimg/_DUMMY.png" width="300" height="300" alt=""/></a>
 	</div>
 </body>
