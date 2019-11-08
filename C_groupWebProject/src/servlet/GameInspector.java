@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +33,7 @@ public class GameInspector extends HttpServlet {
 		HttpSession session = request.getSession();
 		AccountBeans account = null;
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher(request.getParameter("url"));
+		String url = request.getParameter("url");
 
 		try {
 
@@ -42,7 +41,7 @@ public class GameInspector extends HttpServlet {
 			account.getName();
 
 		}catch(NullPointerException ex) {
-			dispatcher.forward(request, response);
+			response.sendRedirect(url);
 		}
 
 		String game = request.getParameter("game");
@@ -75,7 +74,7 @@ public class GameInspector extends HttpServlet {
 		GameDAO gameDAO = new GameDAO();
 		gameDAO.postData(account,data);
 
-		dispatcher.forward(request, response);
+		response.sendRedirect(url);
 	}
 
 }
