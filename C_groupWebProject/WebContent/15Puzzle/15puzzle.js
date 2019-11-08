@@ -380,11 +380,13 @@
 			div.appendChild(text);
 
 			setTimeout(function() {
+				text.innerHTML += '<br><font size="3">画面をクリックしてね♪</font>';
+				
 				document.querySelector("body")[0],addEventListener("click", function(e) {
 					submit("/C_groupWebProject/15Puzzle/15puzzleGameSite.html");
 				});
 			}, 1000);
-			
+
 		}	// gameClear function end
 	}	// gameStart function end
 
@@ -393,18 +395,10 @@
 	function submit(url)
 	{	// ページ移動ボタンが押されたらゲームのデータを送信
 
-		console.log("click");
-
-		if (result)
-		{	// ゲームが終了していればデータを送信する
-
-			document.getElementById("gameName").value = "15Puzzle";
-			document.getElementById("gameScore").value = points;
-			document.getElementById("url").value = url;
-			document.querySelector("form").submit();
-
-		} else
-		{ location.href = url; }
+		document.getElementById("gameName").value = "15Puzzle";
+		document.getElementById("gameScore").value = points;
+		document.getElementById("url").value = url;
+		document.querySelector("form").submit();
 
 	}	// submit function end
 }	/* EOF */
