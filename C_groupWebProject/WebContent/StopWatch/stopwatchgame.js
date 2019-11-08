@@ -120,3 +120,12 @@ document.getElementById("reset").onclick = function(){
 	document.getElementById("point").innerHTML = "0.000";
 	document.getElementById("timepoint").innerHTML = "0";
 };
+
+//ページ移動ボタンが押されたらゲームのデータを送信
+function submit()
+{
+    document.getElementById("gameName").value = "カウントゲーム";
+    document.getElementById("gameScore").value = document.getElementById("timepoint");
+    document.querySelector("form").submit();
+
+}    // submit function end
