@@ -13,8 +13,10 @@
 	<div align="center" class="backGround"></div>
 
 	<div id="gameWindow">
-		<img id="restart" src="15PuzzleTexture/RestartButton.png" alt="リスタート">
-
+		<a href="15puzzleGameSite.html">
+			<img src="15PuzzleTexture/RestartButton.png" alt="リスタート">
+		</a>
+		
 		<div id="frontWindow">
 			<img src="15PuzzleTexture/DifficultText.png" alt="難易度をえらんでね">
 			<img id="startButton1" src="15PuzzleTexture/StartButton1.png" alt="ぼたん">
@@ -30,12 +32,14 @@
 		</canvas>
 	</div>
 
-	<img id="back" src="15PuzzleTexture/BackButton.png" alt="戻る">
-
+	<a href="15puzzleTopSite.jsp">
+		<img id="back" src="15PuzzleTexture/BackButton.png" alt="戻る">
+	</a>
+		
 	<form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post">
 		<input type="text" name="game" id="gameName">
 		<input type="text" name="score" id="gameScore">
-		<input type="text" name="url" id="url">
+		<input type="text" name="url" id="url" value="#">
 	</form>
 
 	<script type="text/javascript" src="15puzzle.js"></script>

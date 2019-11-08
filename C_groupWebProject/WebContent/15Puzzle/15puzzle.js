@@ -22,11 +22,6 @@
 		document.getElementById("startButton3")
 	];
 
-	/*const submits = [
-		document.getElementById("restart"),
-		document.getElementById("back")
-	];*/
-
 	// 表示するテキスト要素を取得
 	const gameText = {
 		level: document.getElementById("levelText"),
@@ -40,15 +35,6 @@
 			gameStart(index + 1);
 		});
 	});
-
-
-//	document.getElementById("restart"),addEventListener("click", function(e) {
-//		submit("/C_groupWebProject/15Puzzle/15puzzleGameSite.html");
-//	});
-
-//	document.getElementById("back"),addEventListener("click", function(e) {
-//		submit("/C_groupWebProject/15Puzzle/15puzzleTopSite.jsp");
-//	});
 
 
 
@@ -393,6 +379,12 @@
 			div.appendChild(img);
 			div.appendChild(text);
 
+			setTimeout(function() {
+				document.querySelector("body")[0],addEventListener("click", function(e) {
+					submit("/C_groupWebProject/15Puzzle/15puzzleGameSite.html");
+				});
+			}, 1000);
+			
 		}	// gameClear function end
 	}	// gameStart function end
 
