@@ -42,13 +42,13 @@
 	});
 
 
-	document.getElementById("restart"),addEventListener("click", function(e) {
-		submit("/C_groupWebProject/15Puzzle/15puzzleGameSite.html");
-	});
+//	document.getElementById("restart"),addEventListener("click", function(e) {
+//		submit("/C_groupWebProject/15Puzzle/15puzzleGameSite.html");
+//	});
 
-	document.getElementById("back"),addEventListener("click", function(e) {
-		submit("/C_groupWebProject/15Puzzle/15puzzleTopSite.jsp");
-	});
+//	document.getElementById("back"),addEventListener("click", function(e) {
+//		submit("/C_groupWebProject/15Puzzle/15puzzleTopSite.jsp");
+//	});
 
 
 

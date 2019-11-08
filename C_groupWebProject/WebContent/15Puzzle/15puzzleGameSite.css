@@ -20,9 +20,12 @@
 }
 
 #restart {
+	background-image: url("15PuzzleTexture/RestartButton.png");
 	position: absolute;
 	top: 30px;
 	right: 30px;
+	wight: 41px;
+	height: 41px;
 	z-index: 1;
 }
 
