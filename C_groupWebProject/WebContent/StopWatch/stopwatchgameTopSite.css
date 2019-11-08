@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.btn {
+	display: inline-block;
+	border-radius: 5px;
+	background-color: silver;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	width: 160px;
+}
+
+.container {
+	margin-top: 200px;
+	text-align: center;
+}

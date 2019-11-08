@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+
+.main {
+	margin-top:150px;
+	height:300px;
+	background-position:center;
+	text-align:center;
+	background-image:url(TetrisTexture/tetris.gif);
+	background-size:cover;
+	opacity:0.7;
+}
+
+.main-bg{
+}
+
+.main-logo{
+	color:black;
+	font-size:40px;
+	padding:10px 40px;
+	letter-spacing:30px
+}
+
+.main-list{
+	color:black;
+	font-size:20px;
+}
+
+.main-list li{
+	list-style:none;
+	text-align:center;
+}
+
+.level {
+  padding: 30px;
+  text-align: center;
+  background-color:#d5ffd5;
+}
+.btn{
+  border: 2px solid #400080;
+  border-radius: 50px;
+  background-color: green;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  margin:30px;
+}
+
+.btn:hover{
+  	opacity:0.5;
+}
