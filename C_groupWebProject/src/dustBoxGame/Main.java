@@ -1,4 +1,4 @@
-package Game;
+package dustBoxGame;
 
 import java.io.IOException;
 
