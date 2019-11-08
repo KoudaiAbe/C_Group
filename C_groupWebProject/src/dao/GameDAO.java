@@ -27,13 +27,6 @@ public class GameDAO extends ConstantDefinition{
 
 	public void postData(AccountBeans account, GameBeans data){
 
-		//クラスをロード
-		try {
-			Class.forName("org.postgresql.Driver");
-			}catch(ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(GAME_URL,DRIVER_USER,DRIVER_PASS)){
 

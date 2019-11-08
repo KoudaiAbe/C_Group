@@ -37,13 +37,6 @@ extends ConstantDefinition
 
 		List<ScoreBeans> scoreList = new ArrayList<>();
 
-		//クラスをロード
-		try {
-			Class.forName("org.postgresql.Driver");
-			}catch(ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
 

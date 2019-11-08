@@ -9,6 +9,16 @@ package dao;
 public abstract class ConstantDefinition
 {
 
+	{	// Initializer
+
+		//クラスをロード
+		try
+		{ Class.forName("org.postgresql.Driver"); }
+		catch(ClassNotFoundException e)
+		{ e.printStackTrace(); }
+
+	}	// Initializer end
+
 	/** DBドライバの名称 */
 	//protected final String DRIVER_NAME = "game_db";
 
