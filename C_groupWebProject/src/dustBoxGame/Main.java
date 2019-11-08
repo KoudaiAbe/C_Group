@@ -1,4 +1,4 @@
-package Game;
+package dustBoxGame;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Main
  */
-@WebServlet("/Main")
+@WebServlet("/DustBoxGame")
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,7 +42,7 @@ public class Main extends HttpServlet {
 
         request.setAttribute("Beans",Beans);
 		//ゲーム画面へ
-		RequestDispatcher D = request.getRequestDispatcher("DustBox.jsp");
+		RequestDispatcher D = request.getRequestDispatcher("/DustBoxGame/DustBox.jsp");
 		D.forward(request, response);
 
 

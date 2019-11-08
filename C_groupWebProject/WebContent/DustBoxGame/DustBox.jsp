@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="Game.Beans"%>
+<%@ page import="dustBoxGame.Beans"%>
 <%
 	Beans Beans = (Beans) request.getAttribute("Beans");
 %>
@@ -17,7 +17,7 @@
 <meta charset="UTF-8">
 <title>DustBox_GAME</title>
 </head>
-<link href="Css.css" rel="stylesheet" type="text/css">
+<link href="/C_groupWebProject/DustBoxGame/Css.css" rel="stylesheet" type="text/css">
 <body>
 	<div class="canvas">
 
@@ -31,17 +31,17 @@
 			switch (haikei) {
 				case "1" :
 		%>
-		<img src="animation/haikyo.jpg">
+		<img src="/C_groupWebProject/DustBoxGame/animation/haikyo.jpg">
 		<%
 			break;
 				case "2" :
 		%>
-		<img src="animation/rojiura-animation.jpg">
+		<img src="/C_groupWebProject/DustBoxGame/animation/rojiura-animation.jpg">
 		<%
 			break;
 				case "3" :
 		%>
-		<img src="animation/juutakugai.jpg">
+		<img src="/C_groupWebProject/DustBoxGame/animation/juutakugai.jpg">
 		<%
 			break;
 			}
@@ -87,6 +87,6 @@
 	var level = '<%=Beans.getLevel()%>';
 	console.dir(level);
 		</script>
-	<script type="text/javascript" src="Gage.js"></script>
+	<script type="text/javascript" src="/C_groupWebProject/DustBoxGame/Gage.js"></script>
 
 </body>
