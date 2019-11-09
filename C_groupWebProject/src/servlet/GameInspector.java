@@ -42,6 +42,7 @@ public class GameInspector extends HttpServlet {
 
 		}catch(NullPointerException ex) {
 			response.sendRedirect(url);
+			return;
 		}
 
 		String game = request.getParameter("game");
