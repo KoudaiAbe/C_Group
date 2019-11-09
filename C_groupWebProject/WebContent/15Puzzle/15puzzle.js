@@ -162,7 +162,7 @@
 			// 右下のタイルを-1とする
 			tiles[tiles[0].length - 1][tiles.length - 1] = -1;
 
-        }	// initTiles function end
+        }	// initTiles func end
 
 
 
@@ -208,7 +208,7 @@
 				{ covorNumber = targetPosition - 1; }
 
 			}	// while end
-		}	// moveBlank function end
+		}	// moveBlank func end
 
 
 
@@ -246,7 +246,7 @@
             if (checkResult())
             { getTime("gameClear"); }
 
-        }	// drawPuzzle function end
+        }	// drawPuzzle func end
 
 
 
@@ -269,7 +269,7 @@
 
 				}	// for end
 			}	// for end
-		}	// checkResult function end
+		}	// checkResult func end
 
 
 
@@ -296,7 +296,7 @@
 					return playTimeMsec;
 
 			}	// switch end
-		}	// getTime function end
+		}	// getTime func end
 
 
 
@@ -312,7 +312,7 @@
 					}, 1);
 
 			}	// if end
-		}	// showTimer function end
+		}	// showTimer func end
 
 
 
@@ -381,14 +381,14 @@
 
 			setTimeout(function() {
 				text.innerHTML += '<br><font size="3">画面をクリックしてね♪</font>';
-				
+
 				document.querySelector("body")[0],addEventListener("click", function(e) {
 					submit("/C_groupWebProject/15Puzzle/15puzzleGameSite.html");
 				});
 			}, 1000);
 
-		}	// gameClear function end
-	}	// gameStart function end
+		}	// gameClear func end
+	}	// gameStart func end
 
 
 
@@ -400,5 +400,5 @@
 		document.getElementById("url").value = url;
 		document.querySelector("form").submit();
 
-	}	// submit function end
+	}	// submit func end
 }	/* EOF */

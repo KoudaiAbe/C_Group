@@ -38,48 +38,48 @@
 	</div>
 
 	<script>
-		(function() {
-			let text = document.getElementById("resultText"),
-				reText = document.getElementById("returnTimer"),
-				result;
+	(function() {
+		let text = document.getElementById("resultText"),
+			reText = document.getElementById("returnTimer"),
+			result;
 
-			let name = '<%= account.getName() %>';
-			let action = '<%= action %>';
+		let name = '<%= account.getName() %>';
+		let action = '<%= action %>';
 
-			switch (action)
-			{	// 新規作成ORログイン
+		switch (action)
+		{	// 新規作成ORログイン
 
-				case "get":
-					result = "ログインが完了しました。";
-					break;
+			case "get":
+				result = "ログインが完了しました。";
+				break;
 
-				case "post":
-					result = "登録が完了しました。";
-					break;
+			case "post":
+				result = "登録が完了しました。";
+				break;
 
-			}	// switch end
+		}	// switch end
 
-			// ログインorレジストの結果とアカウント名の表示
-			text.textContent = name +"さんの"+ result;
+		// ログインorレジストの結果とアカウント名の表示
+		text.textContent = name +"さんの"+ result;
 
-			let countSec = 3;
+		let countSec = 3;
 
-			// 3秒後にTOPページへ移動
-			const timer = () => {
+		// 3秒後にTOPページへ移動
+		const timer = () => {
 
-				// カウントダウンテキストの表示
-				reText.textContent = countSec +"秒後にTOPへ移動します。";
+			// カウントダウンテキストの表示
+			reText.textContent = countSec +"秒後にTOPへ移動します。";
 
-				if (countSec != 0)
-				{
-					countSec--;
-					setTimeout(timer, 1000);
-				} else
-				{ location.href = "index.jsp"; }
-			};
+			if (countSec != 0)
+			{
+				countSec--;
+				setTimeout(timer, 1000);
+			} else
+			{ location.href = "index.jsp"; }
+		};
 
-			timer();
-		})();
+		timer();
+	})();
 	</script>
 	<% session.removeAttribute("action"); %>
 </body>
