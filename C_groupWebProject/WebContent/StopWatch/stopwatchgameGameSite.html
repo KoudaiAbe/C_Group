@@ -15,12 +15,19 @@
 	<div class="container">
 		<h1>10秒ピッタリで止めろ！</h1>
 		<button id="start" >START</button>
-		<button id="stop" disabled>STOP</button>
+		<button id="stop"  disabled>STOP</button>
 		<button id="reset">RESET</button>
-		<P>結果は…</P>
-		<div id="point" class="standby">0.000</div>
-		<script src="stopwatchgame.js"></script>
 
+		<P>結果は…</P>
+		<div id="point" class="stanby">0.000</div>
+
+		<p>得点</p>
+		<div id="timepoint" class="timepoint"></div>
+
+		<!-- スコア保存ボタン作成予定 -->
+		<p>スコアを保存</p>
+
+		<script type="text/javascript" src="stopwatchgame.js"></script>
 
 		<button class="btn" type="button"
 			onclick="location.href='stopwatchgameTopSite.jsp'">Back</button>
@@ -31,7 +38,8 @@
 		action="/C_groupWebProject/GameInspector" method="post">
 		<input type="text" name="game" id="gameName"> <input
 			type="text" name="score" id="gameScore">
-		//value="#"に移動先URLを記述 <input type="text" name="url" id="url" value="#">
+		//value="#"に移動先URLを記述
+		<input type="text" name="url" id="url" value="http://localhost:8080/C_groupWebProject/StopWatch/stopwatchgameTopSite.jsp">
 	</form>
 </body>
 </html>

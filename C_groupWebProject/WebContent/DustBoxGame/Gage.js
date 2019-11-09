@@ -45,18 +45,18 @@ function POI() {
 
 	const anime = {
 
-			out:"animation/animation-out.gif",
+			out:"/C_groupWebProject/DustBoxGame/animation/animation-out.gif",
 			lv1 : {
-					goal:"animation/haikyo-animation-in.gif",
-					miss:"animation/haikyo-animation-out.gif"
+					goal:"/C_groupWebProject/DustBoxGame/animation/haikyo-animation-in.gif",
+					miss:"/C_groupWebProject/DustBoxGame/animation/haikyo-animation-out.gif"
 			},
 			lv2 : {
-					goal:"animation/rojiura-animation-in.gif",
-					miss:"animation/rojiura-animation-out.gif"
+					goal:"/C_groupWebProject/DustBoxGame/animation/rojiura-animation-in.gif",
+					miss:"/C_groupWebProject/DustBoxGame/animation/rojiura-animation-out.gif"
 			},
 			lv3 : {
-					goal:"animation/juutakugai-animation-in.gif",
-					miss:"animation/juutakugai-animation-out.gif"
+					goal:"/C_groupWebProject/DustBoxGame/animation/juutakugai-animation-in.gif",
+					miss:"/C_groupWebProject/DustBoxGame/animation/juutakugai-animation-out.gif"
 			},
 	};
 
@@ -275,6 +275,7 @@ function POI() {
 
 	    document.getElementById("gameName").value = "DustBoxGame";
 	    document.getElementById("gameScore").value = score;
+	    document.getElementById("gameTop").value = "/C_groupWebProject/DustBoxGame/DustBoxTopSite.jsp";
 	    document.querySelector("form").submit();
 
 	}    // submit function end

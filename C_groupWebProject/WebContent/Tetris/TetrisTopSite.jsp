@@ -30,11 +30,5 @@
 </div>
 
 
-  <!-- コメントアウト
-  <footer class="footer">
-    <p>COPYRIGHT &#169; Team C. </p>
-  </footer>
-  -->
-
 </body>
 </html>

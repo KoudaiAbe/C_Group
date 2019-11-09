@@ -141,7 +141,7 @@ class Tetris {
          context.lineTo(adjustedX + adjustedSize, adjustedY);
          context.stroke();
          context.strokeStyle = block.shadow;
-        context.beginPath();
+         context.beginPath();
          context.moveTo(adjustedX, adjustedY + adjustedSize);
          context.lineTo(adjustedX + adjustedSize, adjustedY + adjustedSize);
          context.lineTo(adjustedX + adjustedSize, adjustedY);
@@ -184,15 +184,22 @@ class Tetris {
          this.blockY = 0;
          this.blockAngle = 0;
          this.drawNextBlock();
+
         //GAME OVERのロジック
         if (!this.checkBlockMove(this.blockX, this.blockY, this.currentBlock, this.blockAngle)) {
              let messageElem = document.getElementById("message");
-             messageElem.innerText = "げーむおーばー";
+             messageElem.innerText = "GAME OVER";
 
-          // ゲームのデータを送信
+          /*// プレイ結果を送信（GAME OVER時）
   			document.getElementById("gameName").value = "Tetris";
-  			document.getElementById("gameScore").value = points;
-  			document.querySelector("form").submit();
+  			document.getElementById("gameScore").value = lines;
+  			document.querySelector("form").submit();*/
+
+          //スコアを保存ボタンをゲーム終了時に表示させる。
+            document.getElementById("submit").style = "";
+            document.getElementById("submit"),addEventListener("click", function(e) {
+     	       submit();
+     	    });
 
   			return false;
 
@@ -201,10 +208,16 @@ class Tetris {
     	      let messageElem = document.getElementById("message");
       	  messageElem.innerText = "GAME CLEAR";
 
-      	// ゲームのデータを送信
+      	/*// プレイ結果を送信（GAME CLEAR時）
  			document.getElementById("gameName").value = "Tetris";
- 			document.getElementById("gameScore").value = points;
- 			document.querySelector("form").submit();
+ 			document.getElementById("gameScore").value = lines;
+ 			document.querySelector("form").submit();*/
+
+      	//スコアを保存ボタンをゲーム終了時に表示させる。
+	      	document.getElementById("submit").style = "";
+	      	document.getElementById("submit"),addEventListener("click", function(e) {
+		        submit();
+		    });
 
  			return false;
           }

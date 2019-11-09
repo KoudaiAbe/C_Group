@@ -204,28 +204,36 @@ class Tetris {
          this.blockY = 0;
          this.blockAngle = 0;
          this.drawNextBlock();
+
        //GAME OVERのロジック
          if (!this.checkBlockMove(this.blockX, this.blockY, this.currentBlock, this.blockAngle)) {
-             let messageElem = document.getElementById("message");
-             messageElem.innerText = "げーむおーばー";
+              let messageElem = document.getElementById("message");
+              messageElem.innerText = "GAME OVER";
 
-          // ゲームのデータを送信
- 			document.getElementById("gameName").value = "15Puzzle";
- 			document.getElementById("gameScore").value = points;
- 			document.querySelector("form").submit();
+           /*// プレイ結果を送信（GAME OVER時）
+   			document.getElementById("gameName").value = "Tetris";
+   			document.getElementById("gameScore").value = lines;
+   			document.querySelector("form").submit();*/
+              document.getElementById("submit").style = "";
+              document.getElementById("submit"),addEventListener("click", function(e) {
+      	        submit();
+      	    });
 
- 			return false;
+   			return false;
 
-       //GAME CLEARのロジック
-         }else if(this.deletedLines >= 300){
-   	      let messageElem = document.getElementById("message");
-     	  messageElem.innerText = "GAME CLEAR";
+         //GAME CLEARのロジック
+           }else if(this.deletedLines >= 999){
+     	      let messageElem = document.getElementById("message");
+       	  messageElem.innerText = "GAME CLEAR";
 
-     	// ゲームのデータを送信
-			document.getElementById("gameName").value = "15Puzzle";
-			document.getElementById("gameScore").value = points;
-			document.querySelector("form").submit();
-
+       	/*// プレイ結果を送信（GAME CLEAR時）
+  			document.getElementById("gameName").value = "Tetris";
+  			document.getElementById("gameScore").value = lines;
+  			document.querySelector("form").submit();*/
+       	document.getElementById("submit").style = "";
+       	document.getElementById("submit"),addEventListener("click", function(e) {
+ 	        submit();
+ 	    });
 			return false;
          }
          return true;

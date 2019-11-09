@@ -44,7 +44,7 @@
 <font size="6">Levelを選択してスタート!!</font>
 
 <div class="Level">
-<form action="/Gomibako/Main" method="get">
+<form action="/C_groupWebProject/DustBoxGame" method="get">
 <input type="radio" name="level" value="1" class="geomsize" checked="checked">Level_1
 <input type="radio" name="level" value="2" class="geomsize">Level_2
 <input type="radio" name="level" value="3" class="geomsize">Level_3<br>
