@@ -37,6 +37,10 @@
 -->
 	</div>
 
+	<form style="visibility: hidden;" action="/C_groupWebProject/Score" method="get" onsubmit="return false;">
+		<input type="text" name="game" id="gameName">
+	</form>
+
 	<script>
 	(function() {
 
@@ -74,6 +78,8 @@
 			let game = node.textContent;
 			<% List<ScoreBeans> scoreList = logic.rankingLogic(game); %>
  			--%>
+ 			document.getElementById("gameName").value = node.textContent;
+ 			document.querySelector("form").submit();
 
 			let rankingList = document.getElementById("rankingList");
 

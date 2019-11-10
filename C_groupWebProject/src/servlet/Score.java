@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import logic.ScoreLogic;
 import model.ScoreBeans;
 
@@ -38,12 +36,7 @@ extends HttpServlet
 		ScoreLogic logic = new ScoreLogic();
 		List<ScoreBeans> scoreList = logic.rankingLogic((String) request.getAttribute("gameName"));
 
-        ObjectMapper mapper = new ObjectMapper();
-        String result = mapper.writeValueAsString(scoreList);
-
-        request.setAttribute("scoreList", result);
-
-        request.getRequestDispatcher("ranking.jsp").forward(request, response);
+        request.setAttribute("scoreList", scoreList);
 
 	}
 }

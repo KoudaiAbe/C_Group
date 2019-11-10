@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.ScoreDAO;
@@ -29,8 +30,20 @@ public class ScoreLogic
 	{
 
 		//TODO とりあえずインスタンス生成して呼び出して返すだけ
-		ScoreDAO inst = new ScoreDAO();
-		return inst.getRankingList(game);
+		//ScoreDAO inst = new ScoreDAO();
+		//return inst.getRankingList(game);
+
+		//TODO チェック用のBeansを返す
+		List<ScoreBeans> scoreList = new ArrayList<>();
+		ScoreBeans bean = new ScoreBeans();
+		bean.setName("TEST");
+		bean.setGame("GAMENAME");
+		bean.setScore("9999");
+		bean.setDate("9999/99/99");
+		scoreList.add(bean);
+
+		return scoreList;
+
 
 	}	// rankingLogic method end
 
