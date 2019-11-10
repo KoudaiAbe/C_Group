@@ -49,10 +49,14 @@
 	width: 580px;
 	height: 50px;
 	display: flex;
+	overflow: hidden;
 }
 
 .list > .box {
 	height: 50px;
+	animation-name: slideInBottomt;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
 }
 
 .list > .box-rank {
@@ -78,4 +82,16 @@
 	text-align: center;
 	width: 120px;
 	line-height: 50px;
+}
+
+@keyframes slideInBottomt {
+	from {
+		opacity: 0;
+		transform: translateY(150px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

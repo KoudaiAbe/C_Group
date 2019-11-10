@@ -70,9 +70,8 @@
 		function getRanking(node)
 		{	// ランキングを取得して表示する
 
-			// リストの作成を命令
-			let game = node.textContent;
 			<%-- TODO スクリプトのgameをメソッドの引数として渡したい
+			let game = node.textContent;
 			<% List<ScoreBeans> scoreList = logic.rankingLogic(game); %>
  			--%>
 
@@ -81,7 +80,6 @@
 			for (let index = 0 ; index < 20 ; index++)
 			{	// 20位から順にノードを作成
 
-				console.log(index +"nodeCreate");
 				// ノードの生成
 				var listNode = document.createElement("div"),
 					rankNode = document.createElement("div"),
@@ -124,6 +122,10 @@
 				listNode.appendChild(nameNode);
 				listNode.appendChild(scoreNode);
 				listNode.appendChild(dateNode);
+
+				// アニメーションのために0.25秒のウェイト
+				/* var startMsec = new Date();
+				while (new Date() - startMsec < 250); */
 
 			}	// for end
 		}	// getRanking func end
