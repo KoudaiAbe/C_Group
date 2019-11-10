@@ -32,14 +32,37 @@
 	// レベルボタンにイベントリスナーを設定
 	levels.forEach((array, index) => {
 		array.addEventListener("click", function(e) {
-			gameStart(index + 1);
+			startAnimation(index + 1);
 		});
 	});
 
 
 
+	function startAnimation(level)
+	{	// レベルが選択されたらアニメーションを流しゲームスタート
+
+		// ボタンオブジェクトを削除
+		let frontWindow = document.getElementById("frontWindow");
+		while (frontWindow.firstChild) frontWindow.removeChild(frontWindow.firstChild);
+
+		let startAnime = document.createElement("img");
+		startAnime.src = "15PuzzleTexture/StartAnime.gif";
+		frontWindow.appendChild(startAnime);
+
+		setTimeout(function() {
+
+			// アニメーション再生後にゲーム開始
+			while (frontWindow.firstChild) frontWindow.removeChild(frontWindow.firstChild);
+			frontWindow.remove();
+			gameStart(level);
+
+		}, 3000);
+	}
+
+
+
 	function gameStart(level)
-	{	// レベルの選択ボタンが押されたら実行
+	{	// ゲームのメイン処理
 
         let canvas = document.getElementById("stage"),
 			moveCount = level * (level + 7 + (level * (level - 1))),
@@ -62,12 +85,6 @@
 			[-1,  0],
 			[ 1,  0]
 		];
-
-		// ボタンオブジェクトを削除
-		let element = document.getElementById("frontWindow");
-		while (element.firstChild)
-		{ element.removeChild(element.firstChild); }
-		element.remove();
 
 		if (!canvas.getContext)
 		{	// もしcanvasに対応していなければ
