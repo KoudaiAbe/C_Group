@@ -125,7 +125,7 @@ document.getElementById("reset").onclick = function(){
 function submit()
 {
     document.getElementById("gameName").value = "カウントゲーム";
-    document.getElementById("gameScore").value = document.getElementById("timepoint").textContent;
+    document.getElementById("gameScore").value = document.getElementById("timepoint");
     document.querySelector("form").submit();
 
 }    // submit function end

@@ -14,8 +14,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/postgresql-42.2.6.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/git/C_Group/C_groupWebProject/library/jackson-annotations-2.9.8.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/git/C_Group/C_groupWebProject/library/jackson-core-2.9.8.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/git/C_Group/C_groupWebProject/library/jackson-databind-2.9.8.jar"/>
+	<classpathentry kind="lib" path="/Users/konkon/Documents/git/C_Group/C_groupWebProject/WebContent/WEB-INF/lib/jackson-annotations-2.9.8.jar"/>
+	<classpathentry kind="lib" path="/Users/konkon/Documents/git/C_Group/C_groupWebProject/WebContent/WEB-INF/lib/jackson-core-2.9.8.jar"/>
+	<classpathentry kind="lib" path="/Users/konkon/Documents/git/C_Group/C_groupWebProject/WebContent/WEB-INF/lib/jackson-databind-2.9.8.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

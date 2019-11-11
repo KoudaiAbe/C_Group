@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="model.ScoreBeans, logic.ScoreLogic, java.util.List"%>
-    <% ScoreLogic logic = new ScoreLogic(); %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -37,12 +35,16 @@
 -->
 	</div>
 
-	<form style="visibility: hidden;" action="/C_groupWebProject/Score" method="get" onsubmit="return false;">
-		<input type="text" name="game" id="gameName">
-	</form>
+	<div id="mixdata_response">
+	<!-- 結果を出力する -->
+	</div>
 
+	<script src="/C_groupWebProject/jquery-3.4.1.min.js"></script>
 	<script>
 	(function() {
+
+		<%-- TODO スクリプトのgameをメソッドの引数として渡したい
+		<% List<ScoreBeans> scoreList = logic.rankingLogic("test"); %> --%>
 
 		document.addEventListener('DOMContentLoaded', function() {
 
@@ -60,26 +62,38 @@
 					{ activeTAG[0].classList.remove('is-active'); }
 					this.classList.add('is-active');
 
+					//サーバに送信するリクエストの設定
+					$.ajax({
+						type:'GET',
+						url: '/C_groupWebProject/Score',
+						data: {gameName: this.textContent},
+						async: true,
+						dataType: 'json',
+						success : function(data) {
+							//通信が成功した場合に受け取るメッセージ
+							response1 = data["response1"];
+							response2 = data["response2"];
+						},
+						error : function(XMLHttpRequest, textStatus, errorThrown) {
+							alert("リクエスト時になんらかのエラーが発生しました：" + textStatus +":\n" + errorThrown);
+						}
+					});
+
 					// ランキングを表示させる関数を実行
 					resetList();
-					getRanking(this);
+					getRanking();
 
 				}, false);
 
 			}	// for end
-		});
+		}, false);
 
 
 
-		function getRanking(node)
+		function getRanking()
 		{	// ランキングを取得して表示する
 
-			<%-- TODO スクリプトのgameをメソッドの引数として渡したい
-			let game = node.textContent;
-			<% List<ScoreBeans> scoreList = logic.rankingLogic(game); %>
- 			--%>
- 			document.getElementById("gameName").value = node.textContent;
- 			document.querySelector("form").submit();
+ 			/* document.querySelector("form").submit(); */
 
 			let rankingList = document.getElementById("rankingList");
 
@@ -107,10 +121,10 @@
 				{
 
 					<%-- TODO スクリプトのindexをインデックスとして渡したい
-					nameNode.textContent = <%= scoreList[index].getName() %>;
-					scoreNode.innerHTML = '<font size="5">'+ <%= scoreList[index].getScore() %> + '</font>pt';
-					dateNode.textContent = <%= scoreList[index].getDate() %>;
- 					--%>
+					nameNode.textContent = <%= scoreList.get(index).getName() %>;
+					scoreNode.innerHTML = '<font size="5">'+ <%= scoreList.get(index).getScore() %> + '</font>pt';
+					dateNode.textContent = <%= scoreList.get(index).getDate() %>; --%>
+
  					throw new Error(); // とりあえずキャッチさせておく
 
 				} catch (error)
@@ -128,10 +142,6 @@
 				listNode.appendChild(nameNode);
 				listNode.appendChild(scoreNode);
 				listNode.appendChild(dateNode);
-
-				// アニメーションのために0.25秒のウェイト
-				/* var startMsec = new Date();
-				while (new Date() - startMsec < 250); */
 
 			}	// for end
 		}	// getRanking func end

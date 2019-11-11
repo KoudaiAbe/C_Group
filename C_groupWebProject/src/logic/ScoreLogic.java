@@ -29,6 +29,8 @@ public class ScoreLogic
 	public List<ScoreBeans> rankingLogic(String game)
 	{
 
+		System.out.println("ロジック");
+
 		//TODO とりあえずインスタンス生成して呼び出して返すだけ
 		//ScoreDAO inst = new ScoreDAO();
 		//return inst.getRankingList(game);
