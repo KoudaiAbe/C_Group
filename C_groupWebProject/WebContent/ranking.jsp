@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="model.AccountBeans" %>
+    <% AccountBeans account = (AccountBeans) session.getAttribute("accountBeans"); %>
 <!DOCTYPE html>
 <html>
 
@@ -35,6 +37,11 @@
 -->
 	</div>
 
+	<%
+	String name = null;
+	if (account != null)
+	{ name = account.getName(); }
+	%>
 	<script src="/C_groupWebProject/jquery-3.4.1.min.js"></script>
 	<script>
 	(function() {
@@ -135,6 +142,9 @@
 					nameNode.textContent = scoreList[index].name;
 					scoreNode.innerHTML = '<font size="5">'+ scoreList[index].score + '</font>pt';
 					dateNode.textContent = scoreList[index].date;
+
+					if (scoreList[index].name == <%= name %>)
+					{ listNode.style = "font-color: #F30;"; }
 
 				} catch (error)
 				{	// リストが無ければ以下の表示
