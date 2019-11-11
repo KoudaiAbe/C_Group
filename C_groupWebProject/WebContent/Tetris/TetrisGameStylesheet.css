@@ -12,6 +12,10 @@ html {
   opacity:0.5;
 }
 
+body{
+	position: fixed;
+}
+
 span {
   color: #ff80ff;
   font-size:20px;
