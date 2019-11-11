@@ -1,53 +1,46 @@
+/* **CHANGED**
+ *
+ * param(check) add
+ *
+ * column59-71 add
+ */
+
 package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import model.AccountBeans;
+import model.GameBeans;
 
-public class GameDAO
-extends ConstantDefinition{
+/**
+ * ログインの処理を行うクラス。<br>
+ * サーブレットクラスよりBeansインスタンスを受け取り、それをもとにDBと照合する。<br>
+ * インスタンス内の値とDB内に一致するものがあればTRUEを返し、一致しなければFALSEを返す。
+ *
+ * @author 阿部/松本
+ */
+public class GameDAO extends ConstantDefinition{
 
-	public boolean findALL(){
-		List<AccountBeans> AccountBeansList = new ArrayList<>();
+	public void postData(AccountBeans account, GameBeans data){
 
 		//データベース接続
-		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
-			//SELECT文の準備
-			String sql = "SELECT NAME,PASS FROM account";
-			PreparedStatement pStmt = con.prepareStatement(sql);
+		try(Connection con = DriverManager.getConnection(GAME_URL,DRIVER_USER,DRIVER_PASS)){
 
-			//SELECTを実行
-			ResultSet rs = pStmt.executeQuery();
+			// DBにアカウントを登録する
+			String sqladd =
+				"INSERT INTO gamerecord VALUES('"+ account.getName() +"', '"+data.getGame() +"', '"+ data.getYear() + "', '"+ data.getMonth() + "', '"+ data.getDay() + "', '"+ data.getHour() + "', '"+ data.getMinute() + "', '"+ data.getSecond() + "', '"+ data.getScore() + "')";
+			PreparedStatement pStmt2 = con.prepareStatement(sqladd);
 
-			//SELECT文の結果をArrayListに格納
-			while(rs.next()) {
-				String name = rs.getString("NAME");
-				String password = rs.getString("PASS");
+			//INSERTを実行
+			pStmt2.executeUpdate();
 
-				//for文でリストの中からnameが一致するか取得
-				for(AccountBeans userName : AccountBeansList) {
-					if(name.equals(userName) ){
-						return false;
-					}else {
-						AccountBeans accountbeans = new AccountBeans();
-						AccountBeansList.add(accountbeans);
-						String sqladd = "SELECT NAME,PASS INSERT account";
-					}
-				}
-				//引数を設定する
-//				AccountBeans accountbeans = new AccountBeans();
-//				AccountBeansList.add(accountbeans);
-			}
 		}catch(SQLException e) {
+
 			e.printStackTrace();
-			return false;
+
 		}
-		return true;
 	}
 }

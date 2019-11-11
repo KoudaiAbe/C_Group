@@ -14,6 +14,7 @@
 
 	<div class="container">
 		<h1>10秒ピッタリで止めろ！</h1>
+
 		<button id="start" >START</button>
 		<button id="stop"  disabled>STOP</button>
 		<button id="reset">RESET</button>
@@ -24,22 +25,38 @@
 		<p>得点</p>
 		<div id="timepoint" class="timepoint"></div>
 
-		<!-- スコア保存ボタン作成予定 -->
-		<p>スコアを保存</p>
-
 		<script type="text/javascript" src="stopwatchgame.js"></script>
+
+		<!-- スコア保存ボタン -->
+		<button class="btn" type="button" id="submit" >スコアを保存</button>
 
 		<button class="btn" type="button"
 			onclick="location.href='stopwatchgameTopSite.jsp'">Back</button>
 
 	</div>
 
+	<!-- 不可視フォームからGameInspectorクラスへプレイ結果送信と同時にゲームトップ画面を表示する -->
 	<form style="visibility: hidden;"
 		action="/C_groupWebProject/GameInspector" method="post">
-		<input type="text" name="game" id="gameName"> <input
-			type="text" name="score" id="gameScore">
-		//value="#"に移動先URLを記述
-		<input type="text" name="url" id="url" value="http://localhost:8080/C_groupWebProject/StopWatch/stopwatchgameTopSite.jsp">
+
+		<input type="text" name="game" id="gameName">
+		<input type="text" name="score" id="gameScore">
+
+		//value=に移動先URLを記述
+		<input type="text" name="url" id="url" value="/C_groupWebProject/StopWatch/stopwatchgameTopSite.jsp">
+
 	</form>
+
+	<!-- 得点送信ロジック -->
+	<script>
+
+	function submit()
+	{
+		document.getElementById("gameName").value = "StopWatch";
+			document.getElementById("gameScore").value = document.getElementById("timepoint").textContent;
+			document.querySelector("form").submit();
+	}
+
+	</script>
 </body>
 </html>

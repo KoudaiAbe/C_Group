@@ -17,7 +17,7 @@ header {
 	text-align: center;
 }
 
-.start, .stop, .reset .btn{
+.start, .stop, .reset, .btn{
 	width: 180px;
 	height: 50px;
 	border: none;
