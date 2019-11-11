@@ -44,26 +44,35 @@ extends HttpServlet
 			ScoreLogic logic = new ScoreLogic();
 			List<ScoreBeans> scoreList = logic.rankingLogic((String) request.getAttribute("gameName"));
 
-			System.out.println(scoreList.get(0).getName());
-
 			//出力(レスポンスをmapに格納してJSON化)
 
 			//JSONマップ
 			Map<String, String> mapMsg = new HashMap<>();
 
 			//追加
-			mapMsg.put("name", scoreList.get(0).getName());
-			mapMsg.put("score", scoreList.get(0).getScore());
-			mapMsg.put("date", scoreList.get(0).getDate());
+			for (int index = 0 ; index < scoreList.size() ; index++)
+			{	// scoreListをマップへ挿入
+
+				String name = "name"+ index;
+				String score = "score"+ index;
+				String date = "date"+ index;
+
+				mapMsg.put(name, scoreList.get(index).getName());
+				mapMsg.put(score, scoreList.get(index).getScore());
+				mapMsg.put(date, scoreList.get(index).getDate());
+
+			}	// for end
+
+			mapMsg.put("LIST_RENGTH", Integer.toString(scoreList.size()));
 
 			//マッパ(JSON <-> Map, List)
 			ObjectMapper mapper = new ObjectMapper();
 
 			//json文字列
-			String jsonStr = mapper.writeValueAsString(mapMsg);  //list, map
+			String jsonStr = mapper.writeValueAsString(mapMsg);
 
 			//ヘッダ設定
-			response.setContentType("application/json;charset=UTF-8");   //JSON形式, UTF-8
+			response.setContentType("application/json;charset=UTF-8");
 
 			//pwオブジェクト
 			PrintWriter pw = response.getWriter();

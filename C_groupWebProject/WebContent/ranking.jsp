@@ -45,6 +45,7 @@
 
 		<%-- TODO スクリプトのgameをメソッドの引数として渡したい
 		<% List<ScoreBeans> scoreList = logic.rankingLogic("test"); %> --%>
+		let scoreList;
 
 		document.addEventListener('DOMContentLoaded', function() {
 
@@ -70,23 +71,34 @@
 						async: true,
 						dataType: 'json',
 						success : function(data) {
-							//通信が成功した場合に受け取るメッセージ
-							scoreList = {
-									name: data["name"],
-									score: data["score"],
-									date: data["date"]
-							};
-							console.log(scoreList);
+							//通信が成功したらデータを挿入
+							let size = data["LIST_RENGTH"];
+							scoreList = new Array(size + 1);
+
+							for (let index = 0 ; index < size ; index++)
+							{
+								var name = "name"+ index,
+									score = "score"+ index,
+									date = "date"+ index;
+
+								var bean = {
+										name: data[name],
+										score: data[score],
+										date: data[date]
+								};
+
+								scoreList[index] = bean;
+							}
+							console.log(scoreList[0].name);
+
+							// ランキングを表示させる関数を実行
+							resetList();
+							getRanking();
 						},
 						error : function(XMLHttpRequest, textStatus, errorThrown) {
 							alert("リクエスト時になんらかのエラーが発生しました：" + textStatus +":\n" + errorThrown);
 						}
 					});
-
-					// ランキングを表示させる関数を実行
-					resetList();
-					getRanking();
-
 				}, false);
 
 			}	// for end
@@ -124,12 +136,9 @@
 				try
 				{
 
-					<%-- TODO スクリプトのindexをインデックスとして渡したい
-					nameNode.textContent = <%= scoreList.get(index).getName() %>;
-					scoreNode.innerHTML = '<font size="5">'+ <%= scoreList.get(index).getScore() %> + '</font>pt';
-					dateNode.textContent = <%= scoreList.get(index).getDate() %>; --%>
-
- 					throw new Error(); // とりあえずキャッチさせておく
+					nameNode.textContent = scoreList[index].name;
+					scoreNode.innerHTML = '<font size="5">'+ scoreList[index].score + '</font>pt';
+					dateNode.textContent = scoreList[index].date;
 
 				} catch (error)
 				{	// リストが無ければ以下の表示
