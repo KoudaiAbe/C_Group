@@ -40,29 +40,24 @@ extends HttpServlet
 
 		try
 		{
-			System.out.println("GET"); //TODO DEBUG
+
 			ScoreLogic logic = new ScoreLogic();
 			List<ScoreBeans> scoreList = logic.rankingLogic((String) request.getAttribute("gameName"));
 
-			//処理（DB呼び出し等）
-			String response1 = "";
-			String response2 = "";
+			System.out.println(scoreList.get(0).getName());
 
 			//出力(レスポンスをmapに格納してJSON化)
 
 			//JSONマップ
-			Map<String, String> mapMsg = new HashMap<String, String>();
+			Map<String, String> mapMsg = new HashMap<>();
 
 			//追加
-			mapMsg.put("response1", response1);
-			mapMsg.put("response2", response2);
-
-			System.out.println("マッパ前"); //TODO DEBUG
+			mapMsg.put("name", scoreList.get(0).getName());
+			mapMsg.put("score", scoreList.get(0).getScore());
+			mapMsg.put("date", scoreList.get(0).getDate());
 
 			//マッパ(JSON <-> Map, List)
 			ObjectMapper mapper = new ObjectMapper();
-
-			System.out.println("JSON書き込み前"); //TODO DEBUG
 
 			//json文字列
 			String jsonStr = mapper.writeValueAsString(mapMsg);  //list, map

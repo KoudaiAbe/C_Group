@@ -71,8 +71,12 @@
 						dataType: 'json',
 						success : function(data) {
 							//通信が成功した場合に受け取るメッセージ
-							response1 = data["response1"];
-							response2 = data["response2"];
+							scoreList = {
+									name: data["name"],
+									score: data["score"],
+									date: data["date"]
+							};
+							console.log(scoreList);
 						},
 						error : function(XMLHttpRequest, textStatus, errorThrown) {
 							alert("リクエスト時になんらかのエラーが発生しました：" + textStatus +":\n" + errorThrown);
