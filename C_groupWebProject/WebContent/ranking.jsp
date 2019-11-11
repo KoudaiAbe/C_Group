@@ -35,10 +35,6 @@
 -->
 	</div>
 
-	<div id="mixdata_response">
-	<!-- 結果を出力する -->
-	</div>
-
 	<script src="/C_groupWebProject/jquery-3.4.1.min.js"></script>
 	<script>
 	(function() {

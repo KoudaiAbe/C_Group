@@ -33,7 +33,7 @@ extends ConstantDefinition
 	 * @return
 	 * ランキングのリストコレクション
 	 */
-	public List<ScoreBeans> getRankingList(String game) {
+	public List<ScoreBeans> getRankingList() {
 
 		List<ScoreBeans> scoreList = new ArrayList<>();
 
