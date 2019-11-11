@@ -49,11 +49,11 @@
 		switch (action)
 		{	// 新規作成ORログイン
 
-			case "get":
+			case "Get":
 				result = "ログインが完了しました。";
 				break;
 
-			case "post":
+			case "Post":
 				result = "登録が完了しました。";
 				break;
 

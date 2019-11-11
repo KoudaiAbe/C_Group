@@ -78,12 +78,20 @@
 			switch (action)
 			{	// 新規作成ORログイン
 
-				case "get":
-					msg = "ユーザ名もしくはパスワードが間違っています。";
+				case "TypeError":
+					msg = "ユーザ名もしくはパスワードが誤っています。";
 					break;
 
-				case "post":
+				case "NullInputError":
+					msg = "入力に不備があります。";
+					break;
+
+				case "DuplicateError":
 					msg = "このユーザ名は既に使用されています。";
+					break;
+
+				case "DisagreementError":
+					msg = "確認欄のパスワードが一致しません。";
 					break;
 
 				default:
