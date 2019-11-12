@@ -49,14 +49,15 @@
 
 	<!-- 得点送信ロジック -->
 	<script>
+	(function(){
 
-	function submit()
-	{
-		document.getElementById("gameName").value = "StopWatch";
+		document.getElementById("submit").addEventListener('click', function() {
+			document.getElementById("gameName").value = "StopWatch";
 			document.getElementById("gameScore").value = document.getElementById("timepoint").textContent;
 			document.querySelector("form").submit();
-	}
+		}, false);
 
+	})();
 	</script>
 </body>
 </html>

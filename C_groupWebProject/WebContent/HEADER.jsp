@@ -74,6 +74,10 @@
 			border-color: #cbe585;
 			color: #FFF;
 		}
+
+		.webCommon_Header > .button > .hidden {
+			display: none;
+		}
 	-->
 	</style>
 </head>
@@ -81,21 +85,56 @@
 <body>
 	<%
 	String name;
+	boolean check;
+
 	if (account == null)
-	{ name = "ゲスト"; }
+	{
+
+		check = false;
+		name = "ゲスト";
+
+	}
 	else
-	{ name = account.getName(); }
+	{
+
+		check = true;
+		name = account.getName();
+
+	}
 	%>
 	<div class="webCommon_Header">
 		<h1>ヘッドテキスト</h1>
 		<h2>ようこそ<%= name %>さん！</h2>
 		<div class="button">
-			<a href="index.jsp" class="btn-border">HOME</a>
-			<a href="mypage.jsp" class="btn-border">MY PAGE</a>
-			<a href="ranking.jsp" class="btn-border">RANKING</a>
-			<a href="login.jsp" class="btn-border">LOGIN</a>
+			<a href="/C_groupWebProject/index.jsp" class="btn-border">HOME</a>
+			<a href="/C_groupWebProject/mypage.jsp" class="btn-border">MY PAGE</a>
+			<a href="/C_groupWebProject/ranking.jsp" class="btn-border">RANKING</a>
+			<a href="/C_groupWebProject/login.jsp" class="btn-border" id="webCommon_login">LOGIN</a>
+			<a href="/C_groupWebProject/logout.jsp" class="btn-border hidden" id="webCommon_logout">LOGOUT</a>
 		</div>
 	</div>
+
+	<script>
+		(function() {
+
+			const login = document.getElementById("webCommon_login"),
+				  logout = document.getElementById("webCommon_logout");
+
+			if (<%= check %>)
+			{	// ログインしていればLOGOUTボタンを表示
+
+				document.getElementsByClassName('hidden')[0].classList.remove('hidden');
+				login.classList.add('hidden');
+
+			} else
+			{	// ログインしていなければLOGINボタンを表示
+
+				document.getElementsByClassName('hidden')[0].classList.remove('hidden');
+				logout.classList.add('hidden');
+
+			}
+		})();
+	</script>
 </body>
 
 </html>

@@ -1,11 +1,3 @@
-
-/* **CHANGED**
- *
- * param(accounBeans) -> account
- *
- * column99-109 add
- */
-
 package servlet;
 
 import java.io.IOException;
@@ -42,20 +34,31 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		String action;
+
 		//Login.jspのNameとPassを受け取る。
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
+
+		/* ADD if @author 近藤 */
+		if (name.length() == 0 || pass.length() == 0)
+		{	// フォームに不備があればエラー
+
+			// セッションスコープへエラー内容を送信
+			action = "NullInputError";
+			session.setAttribute("action", action);
+
+			// login.jspへ
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+
+		}	// for end
 
 		//nameとpassの値をaccounBeansに保存。
 		AccountBeans account = new AccountBeans();
 		account.setName(name);
 		account.setPass(pass);
-		HttpSession session = request.getSession();
 		session.setAttribute("accountBeans",account);
-
-		// セッションスコープへ処理内容を送信
-		String action = "get";
-		session.setAttribute("action", action);
 
 		//AccountDAO生成
 		AccountDAO  accountDAO = new AccountDAO();
@@ -66,6 +69,10 @@ public class Login extends HttpServlet {
 		if(check) {
 
 			//ログイン完了
+			// セッションスコープへアクション内容を送信
+			action = "Get";
+			session.setAttribute("action", action);
+
 			// loginResult.jspへ
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/loginResult.jsp");
 			dispatcher.forward(request, response);
@@ -73,13 +80,16 @@ public class Login extends HttpServlet {
 		}else {
 
 			//ログイン失敗
+			// セッションスコープへエラー内容を送信
+			action = "TypeError";
+			session.setAttribute("action", action);
+
 			// セッションスコープとBeansを破棄
 			session.removeAttribute("accountBeans");
 			account = null;
 
 			// login.jspへ
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
-			dispatcher.forward(request, response);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 
 		}
 	}
@@ -94,16 +104,35 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		String action;
+
 		//LoginページのNameとPassを受け取る。
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 
 		/* ADD if @author 近藤 */
+		if (name.length() == 0 || pass.length() == 0)
+		{	// フォームに不備があればエラー
+
+			// セッションスコープへエラー内容を送信
+			action = "NullInputError";
+			session.setAttribute("action", action);
+
+			// login.jspへ
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+
+		}	// for end
+
+		/* ADD if @author 近藤 */
 		if (!pass.contentEquals(request.getParameter("pass")))
 		{	// 確認欄とパスワードが一致しない場合は登録処理を行わずlogin.jspへ
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
-			dispatcher.forward(request, response);
+			// セッションスコープへエラー内容を送信
+			action = "DisagreementError";
+			session.setAttribute("action", action);
+
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 
 		}	//if end
 
@@ -111,12 +140,10 @@ public class Login extends HttpServlet {
 		AccountBeans account = new AccountBeans();
 		account.setName(name);
 		account.setPass(pass);
-		HttpSession session = request.getSession();
+
 		session.setAttribute("accountBeans",account);
 
-		// セッションスコープへ処理内容を送信
-		String action = "post";
-		session.setAttribute("action", action);
+
 
 		//AccountDAO生成
 		AccountRegistDAO accountRegistDAO = new AccountRegistDAO();
@@ -127,20 +154,26 @@ public class Login extends HttpServlet {
 		if(check) {
 
 			//新規アカウント登録&ログイン完了
+			// セッションスコープへアクション内容を送信
+			action = "Post";
+			session.setAttribute("action", action);
+
 			// loginResult.jspへ
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/loginResult.jsp");
-			dispatcher.forward(request, response);
+			request.getRequestDispatcher("/loginResult.jsp").forward(request, response);
 
 		}else {
 
 			//被るので登録不可
+			// セッションスコープへエラー内容を送信
+			action = "DuplicateError";
+			session.setAttribute("action", action);
+
 			// セッションスコープとBeansを破棄
 			session.removeAttribute("accountBeans");
 			account = null;
 
 			// login.jspへ
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
-			dispatcher.forward(request, response);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 
 		}
 	}

@@ -11,14 +11,19 @@
 	<h1>テトリス風ゲーム　<span>HARD</span></h1>
 	<div class="wrapper-container">
 		<span class="tetris-container">
-			<canvas id="stage" width="250px" height="500px" style="background-color:black;"></canvas>
-             <span class="tetris-panel-container">
+            <canvas id="stage" width="200px" height="400px" style="background-color:black;"></canvas>
+            <span class="tetris-panel-container">
               <p> Next: </p>
-                <canvas id="next" width="150px" height="150px" style="background-color:black;">
-                </canvas>
+              <canvas id="next" width="110px" height="110px" style="background-color:black;"></canvas>
               <p>Scores:<span id="lines">0</span></p>
+
+              <!-- ゲーム結果を表示 -->
               <p><span id="message"></span></p>
-              <div class="tetris-panel-container-padding"></div>
+
+              <!-- プレイ結果送信ボタン -->
+              <button type=“button" id="submit" style="display:none;">スコアを保存</button>
+
+			  <div class="tetris-panel-container-padding"></div>
               <table class="tetris-button-panel">
                 <tr>
                   <td></td>
@@ -33,17 +38,33 @@
                </table>
              </span>
         </span>
-        <a href="http://localhost:8090/HelloGithub/Tetris/TetrisTopSite.jsp" class="reset">もどる</a>
-     </div>
-      <script>
-        var tetris = new Tetris();
-        tetris.startGame();
-      </script>
 
-      <form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post">
+        <a href="TetrisTopSite.jsp" class="reset">もどる</a>
+
+	</div>
+	<script>
+		var tetris = new Tetris();
+		tetris.startGame();
+	</script>
+
+	<!-- 不可視フォームからGameInspectorクラスへプレイ結果送信と同時にゲームトップ画面を表示する -->
+	<form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post">
 		<input type="text" name="game" id="gameName">
 		<input type="text" name="score" id="gameScore">
-	  </form>
+		<input type="text" name="url" id="url" value="/C_groupWebProject/Tetris/TetrisTopSite.jsp">
+	</form>
+
+	<script>
+
+	function submit()
+	{
+		document.getElementById("gameName").value = "Tetris";
+			document.getElementById("gameScore").value = document.getElementById("lines").textContent;
+			document.querySelector("form").submit();
+	}
+
+	</script>
 
 </body>
+
 </html>

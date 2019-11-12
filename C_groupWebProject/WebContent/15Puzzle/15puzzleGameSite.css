@@ -1,13 +1,5 @@
 @charset "utf-8";
 
-/*#gameWindow {
-	background-image: url("15PuzzleTexture/BackGround.png");
-	position: absolute;
-	top: 50px;
-	width: 350px;
-	height: 600px;
-	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", "Osaka-mono", "monospace";
-}*/
 #gameWindow {
 	background-image: url("15PuzzleTexture/BackGround.png");
 	position: absolute;
@@ -19,10 +11,13 @@
 	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", "Osaka-mono", "monospace";
 }
 
-#gameWindow > a[href=""] {
+a[href="15puzzleGameSite.html"] {
+	background-image: url("15PuzzleTexture/RestartButton.png");
 	position: absolute;
 	top: 30px;
 	right: 30px;
+	wight: 41px;
+	height: 41px;
 	z-index: 1;
 }
 

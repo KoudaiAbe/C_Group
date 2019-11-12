@@ -23,16 +23,9 @@ public class AccountRegistDAO
 extends ConstantDefinition
 {
 
-	public boolean createAccount(AccountBeans beans){
+	public boolean createAccount(AccountBeans account){
 
 		List<String> nameList = new ArrayList<>();
-
-		//クラスをロード
-		try {
-			Class.forName("org.postgresql.Driver");
-		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
@@ -55,7 +48,7 @@ extends ConstantDefinition
 			for(String list : nameList) {
 
 				// 一致する場合は登録を拒絶
-				if(list.equals(beans.getName()) ){
+				if(list.equals(account.getName()) ){
 
 					return false;
 
@@ -64,7 +57,7 @@ extends ConstantDefinition
 
 			// DBにアカウントを登録する
 			String sqladd =
-					"INSERT INTO account VALUES('"+ beans.getName() +"', '"+ beans.getPass() +"')";
+					"INSERT INTO account VALUES('"+ account.getName() +"', '"+ account.getPass() +"')";
 			PreparedStatement pStmt2 = con.prepareStatement(sqladd);
 
 			//INSERTを実行

@@ -46,22 +46,28 @@
 	<script>
 		(function() {
 			document.addEventListener('DOMContentLoaded', function() {
+
 				// タブに対してクリックイベントを適用
 				const tabs = document.getElementsByClassName('tab');
 
-				for (let i = 0; i < tabs.length; i++)
-				{ tabs[i].addEventListener('click', tabSwitch, false); }
+				//for (let index = 0; index < tabs.length; index++)
+				for (tab of tabs)
+				{
 
-				function tabSwitch() {
-					// タブのclassの値を変更
-					document.getElementsByClassName('is-active')[0].classList.remove('is-active');
-					this.classList.add('is-active');
+					tab.addEventListener('click', function() {
 
-					// コンテンツのclassの値を変更
-					document.getElementsByClassName('is-show')[0].classList.remove('is-show');
-					const arrayTabs = Array.prototype.slice.call(tabs);
-					const index = arrayTabs.indexOf(this);
-					document.getElementsByClassName('panel')[index].classList.add('is-show');
+						// タブのclassの値を変更
+						document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+						this.classList.add('is-active');
+
+						// コンテンツのclassの値を変更
+						document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+						const arrayTabs = Array.prototype.slice.call(tabs);
+						const array = arrayTabs.indexOf(this);
+						document.getElementsByClassName('panel')[array].classList.add('is-show');
+
+					}, false);
+
 				}
 			});
 
@@ -72,12 +78,20 @@
 			switch (action)
 			{	// 新規作成ORログイン
 
-				case "get":
-					msg = "ユーザ名もしくはパスワードが間違っています。";
+				case "TypeError":
+					msg = "ユーザ名もしくはパスワードが誤っています。";
 					break;
 
-				case "post":
+				case "NullInputError":
+					msg = "入力に不備があります。";
+					break;
+
+				case "DuplicateError":
 					msg = "このユーザ名は既に使用されています。";
+					break;
+
+				case "DisagreementError":
+					msg = "確認欄のパスワードが一致しません。";
 					break;
 
 				default:

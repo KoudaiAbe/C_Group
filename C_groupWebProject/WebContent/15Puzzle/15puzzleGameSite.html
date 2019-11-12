@@ -13,27 +13,36 @@
 	<div align="center" class="backGround"></div>
 
 	<div id="gameWindow">
-		<a href="">
-			<img src="15PuzzleTexture/RestartButton.png" width="40" height="40" alt="リスタート"/>
+		<a href="15puzzleGameSite.html">
+			<img src="15PuzzleTexture/RestartButton.png" alt="リスタート">
 		</a>
+		
 		<div id="frontWindow">
 			<img src="15PuzzleTexture/DifficultText.png" alt="難易度をえらんでね">
 			<img id="startButton1" src="15PuzzleTexture/StartButton1.png" alt="ぼたん">
 			<img id="startButton2" src="15PuzzleTexture/StartButton2.png" alt="ぼたん">
 			<img id="startButton3" src="15PuzzleTexture/StartButton3.png" alt="ぼたん">
 		</div>
+
 		<p id="levelText"></p>
 		<p id="timeText"></p>
 		<p id="countText"></p>
 		<canvas id="stage" width="280" height="280">
 			Canvas not supported ...
 		</canvas>
-		<script type="text/javascript" src="15puzzle.js"></script>
 	</div>
 
 	<a href="15puzzleTopSite.jsp">
-		<img src="15PuzzleTexture/BackButton.png" width="241" height="81" alt="戻る"/>
+		<img id="back" src="15PuzzleTexture/BackButton.png" alt="戻る">
 	</a>
+		
+	<form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post">
+		<input type="text" name="game" id="gameName">
+		<input type="text" name="score" id="gameScore">
+		<input type="text" name="url" id="url" value="#">
+	</form>
+
+	<script type="text/javascript" src="15puzzle.js"></script>
 </body>
 
 </html>

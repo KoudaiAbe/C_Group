@@ -7,7 +7,6 @@
 	<meta charset="UTF-8">
 	<title>テトリス風ゲーム入り口</title>
 	<link href="TetrisTopSiteStylesheet.css" rel="stylesheet" type="text/css">
-	<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}TetrisTopSiteStylesheet.css"> --%>
 </head>
 
 <body>
@@ -24,17 +23,11 @@
 	</div>
 
 <div class="level">
-	<a href="${pageContext.request.contextPath}/Tetris/TetrisEasyGameSite.html" class="btn">初級</a>
-	<a href="${pageContext.request.contextPath}/Tetris/TetrisNormalGameSite.html" class="btn">中級</a>
-	<a href="${pageContext.request.contextPath}/Tetris/TetrisHardGameSite.html" class="btn">上級</a>
+	<a href="TetrisEasyGameSite.html" class="btn">初級</a>
+	<a href="TetrisNormalGameSite.html" class="btn">中級</a>
+	<a href="TetrisHardGameSite.html" class="btn">上級</a>
 </div>
 
-
-  <!-- コメントアウト
-  <footer class="footer">
-    <p>COPYRIGHT &#169; Team C. </p>
-  </footer>
-  -->
 
 </body>
 </html>
