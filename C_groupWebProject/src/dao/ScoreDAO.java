@@ -47,11 +47,19 @@ extends ConstantDefinition
 			//SELECTを実行
 			ResultSet list = stateSELECT.executeQuery();
 
+			int index = -1;
+
 			while(list.next())
 			{	// SELECT文の結果をArrayListに格納
 
 				// dateのフォーマットを作成
 				String date = list.getString("year") +"/"+ list.getString("month") +"/"+ list.getString("day");
+
+				if (index != -1)
+				{
+					if (scoreList.get(index).getName().equals(list.getString("name")))
+					{ continue; }
+				}	// if end
 
 				//Beansへセットする
 				ScoreBeans var = new ScoreBeans();
@@ -60,6 +68,8 @@ extends ConstantDefinition
 				var.setScore(list.getString("score"));
 				var.setDate(date);
 				scoreList.add(var);
+
+				index++ ;
 
 			}	// while end
 
