@@ -12,7 +12,7 @@
 	height: 800px;
 }
 
-.lingImg > a {
+.lingImg > a > img {
 	margin: 25px auto;
-	border: thick 
+	border: thick;
 }

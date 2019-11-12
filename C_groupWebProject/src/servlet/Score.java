@@ -42,7 +42,7 @@ extends HttpServlet
 		{
 
 			ScoreLogic logic = new ScoreLogic();
-			List<ScoreBeans> scoreList = logic.rankingLogic((String) request.getAttribute("gameName"));
+			List<ScoreBeans> scoreList = logic.rankingLogic(request.getParameter("gameName"));
 
 			//出力(レスポンスをmapに格納してJSON化)
 
