@@ -29,12 +29,11 @@
 		z-index: 100;
 		}
 
-		.webCommon_Header > h1 {
+		.webCommon_Header > img {
 			position:absolute;
 			left: 50px;
-			margin-top: 15px;
+			margin-top: 25px;
 			text-align: left;
-			font-size: 30pt;
 		}
 
 		.webCommon_Header > h2 {
@@ -103,7 +102,7 @@
 	}
 	%>
 	<div class="webCommon_Header">
-		<h1>ヘッドテキスト</h1>
+		<img src="WEBimg/HeadText.png" width="400" height="50" alt="SUNSELCO GAMES">
 		<h2>ようこそ<%= name %>さん！</h2>
 		<div class="button">
 			<a href="/C_groupWebProject/index.jsp" class="btn-border">HOME</a>
