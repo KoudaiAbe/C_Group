@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="SurrotGamesite.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>スロットゲーム</title>
+</head>
+
+<body>
+<form style="visibility: hidden;" action="/C_groupWebProject/GameInspector" method="post">
+    <input type="text" name="game" id="gameName">
+    <input type="text" name="score" id="gameScore">
+    <input type="text" name="url" id="url" value="/C_groupWebProject/SurrotGamesite/TopPage.jsp">
+</form>
+
+<p><span id="timer"></span></p>
+<p>得点:<span id="score">0</span></p>
+
+<script type="text/javascript" src="surrot.js"></script>
+
+<div class="slots" id="slots_a">
+  <div class="wrapper"></div>
+</div>
+
+<div class="slots" id="slots_b">
+  <div class="wrapper"></div>
+</div>
+
+<div class="slots" id="slots_c">
+  <div class="wrapper"></div>
+</div>
+
+<div class="btn-container">
+  <div class="js-hidden" id="reset-btn">
+    <span class="btn btn-reset">もう一回遊ぶ</span>
+  </div>
+</div>
+
+    <table>
+		<tr>
+		<td colspan="3" id="msg_box" style="height:45px;"></td>
+		</tr>
+
+		<tr>
+		<td><img border="0" id="pic11" src="bar.jpg" width="90" height="60" alt="写真11" ></td>
+		<td><img border="0" id="pic12" src="beru.jpg" width="90" height="60" alt="写真12" ></td>
+		<td><img border="0" id="pic13" src="cherry.jpg" width="90" height="60" alt="写真13" ></td>
+		</tr>
+
+		<tr>
+		<td><img border="0" id="pic21" src="jac.jpg" width="90" height="60" alt="写真21" ></td>
+		<td><img border="0" id="pic22" src="seven.jpg" width="90" height="60" alt="写真22" ></td>
+	    <td><img border="0" id="pic23" src="suika.jpg" width="90" height="60" alt="写真23" ></td>
+	    </tr>
+
+		<tr>
+		<td><img border="0" id="pic31" src="suika.jpg" width="90" height="60" alt="写真31" ></td>
+		<td><img border="0" id="pic32" src="bar.jpg" width="90" height="60" alt="写真32" ></td>
+		<td><img border="0" id="pic33" src="jac.jpg" width="90" height="60" alt="写真33" ></td>
+		</tr>
+
+		<tr>
+		<td colspan="3" style="height:30px;"></td>
+		</tr>
+
+	    <tr>
+	    <td align="center">
+	    <input class="button" type="button" value="STOP" onClick="stop_prg(0)" style="width:80px; height:60px; font-size:22px;
+	    border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+	    background-color: gold;">
+	    </td>
+
+	    <td align="center">
+	    <input class="button" type="button" value="STOP" onClick="stop_prg(1)" style="width:80px; height:60px; font-size:22px;border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+	    background-color: gold;">
+	    </td>
+
+	    <td align="center">
+	    <input class="button" type="button" value="STOP" onClick="stop_prg(2)" style="width:80px; height:60px; font-size:22px;border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+	    background-color: gold;">
+	    </td>
+	    </tr>
+
+		<tr>
+		<td colspan="3" style="height:15px;"></td>
+		</tr>
+
+		<tr>
+		<td colspan="3"></td>
+		</tr>
+
+		<tr>
+		<td colspan="3">
+	    <input class="button" type="button" value="スタート" onClick="start()" style="width:170px; height:60px; font-size:25px;
+	    border-radius: 10px; background-color: gold;"></td>
+	    </tr>
+    </table>
+
+</body>
+</html>
