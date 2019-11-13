@@ -33,28 +33,43 @@ extends ConstantDefinition
 	 * @return
 	 * ランキングのリストコレクション
 	 */
-	public List<ScoreBeans> getRankingList() {
+	public List<ScoreBeans> getRankingList(String game) {
 
 		List<ScoreBeans> scoreList = new ArrayList<>();
 
 		//データベース接続
 		try(Connection con = DriverManager.getConnection(ACCOUNT_URL,DRIVER_USER,DRIVER_PASS)){
 
-			//TODO VIEWの準備、実行
-
 			//SELECT文の準備
-			String selectSQL = "#";	//TODO SELECT文の作成
+			String selectSQL = "SELECT * FROM RankView WHERE rank = 1 AND game = '"+ game +"'";
 			PreparedStatement stateSELECT = con.prepareStatement(selectSQL);
 
 			//SELECTを実行
 			ResultSet list = stateSELECT.executeQuery();
 
+			int index = -1;
+
 			while(list.next())
 			{	// SELECT文の結果をArrayListに格納
 
+				// dateのフォーマットを作成
+				String date = list.getString("year") +"/"+ list.getString("month") +"/"+ list.getString("day");
+
+				if (index != -1)
+				{
+					if (scoreList.get(index).getName().equals(list.getString("name")))
+					{ continue; }
+				}	// if end
+
+				//Beansへセットする
 				ScoreBeans var = new ScoreBeans();
-				//TODO Beansへセットする
+				var.setName(list.getString("name"));
+				var.setGame(list.getString("game"));
+				var.setScore(list.getString("score"));
+				var.setDate(date);
 				scoreList.add(var);
+
+				index++ ;
 
 			}	// while end
 

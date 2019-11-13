@@ -20,7 +20,7 @@
 		<li class="tab">15Puzzle</li>
 		<li class="tab">StopWatch</li>
 		<li class="tab">Tetris</li>
-		<li class="tab">N/A</li>
+		<li class="tab">Slot</li>
 	</ul>
 
 	<!-- ランキングリスト（20位まで表示可） -->
@@ -76,7 +76,7 @@
 						success : function(data) {
 							//通信が成功したらデータを挿入
 							let size = data["LIST_RENGTH"];
-							scoreList = new Array(size + 1);
+							scoreList = new Array(size);
 
 							for (let index = 0 ; index < size ; index++)
 							{
@@ -91,8 +91,8 @@
 								};
 
 								scoreList[index] = bean;
-							}
-							console.log(scoreList[0].name);
+
+							}	// for end
 
 							// ランキングを表示させる関数を実行
 							resetList();
@@ -139,12 +139,28 @@
 				try
 				{
 
+					var count = 0;
+
 					nameNode.textContent = scoreList[index].name;
 					scoreNode.innerHTML = '<font size="5">'+ scoreList[index].score + '</font>pt';
 					dateNode.textContent = scoreList[index].date;
 
-					if (scoreList[index].name == <%= name %>)
-					{ listNode.style = "font-color: #F30;"; }
+					if (index != 0)
+					{	// 2位以降で行う処理
+
+						if (scoreList[index].score == scoreList[index - 1].score)
+						{	// 上位者と同ポイントなら同順にする
+
+							// 順位の表示を再設定
+							rankNode.textContent = (index - count) +"位：";
+							count++ ;
+
+						}	// if end
+					}	// if end
+
+					// ランキングの名前がログイン中ユーザと一致すればハイライト
+					if (scoreList[index].name == '<%= name %>')
+					{ listNode.style = "color: #F30;"; }
 
 				} catch (error)
 				{	// リストが無ければ以下の表示

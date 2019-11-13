@@ -48,8 +48,12 @@ public class GameInspector extends HttpServlet {
 		String game = request.getParameter("game");
 		String score = request.getParameter("score");
 
-		/*プレイ日時としてリアルタイム取得。*/
+		/* ADD while @autor 近藤 */
+		// スコアを４桁に調整
+		while (score.length() != 4)
+		{ score = "0"+ score; }
 
+		/*プレイ日時としてリアルタイム取得。*/
 		Date d = new Date();
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);

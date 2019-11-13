@@ -1,5 +1,7 @@
 package logic;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,51 +33,33 @@ public class ScoreLogic
 
 		ScoreDAO inst = new ScoreDAO();
 		List<ScoreBeans> scoreList = new LinkedList<>();
-		//scoreList = inst.getRankingList();
+		scoreList = inst.getRankingList(game);
 
-		//TODO チェック用のBeansを返す
-		ScoreBeans bean = new ScoreBeans();
-		bean.setName("TEST");
-		bean.setGame("GAMENAME");
-		bean.setScore("9999");
-		bean.setDate("9999/99/99");
-		scoreList.add(bean);
+		// リストをスコアの降順に並べ換える
+		Collections.sort(scoreList, new Comparator<ScoreBeans>() {
+			@SuppressWarnings("unused")
+			public static final int ASC = 1;   //昇順 (1.2.3....)
+			public static final int DESC = -1; //降順 (3.2.1....)
+
+			@Override
+			public int compare(ScoreBeans value1, ScoreBeans value2)
+			{
+				int sortType = DESC;
+				if (value1 == null && value2 == null)
+				{ return 0; }
+				else if (value1 == null)
+				{ return 1 * sortType; }
+				else if (value2 == null)
+				{ return -1 * sortType; }
+
+				int score1 = Integer.parseInt(value1.getScore());
+				int score2 = Integer.parseInt(value2.getScore());
+
+				return (score1 - score2) * sortType;
+			}
+		});
+
 		return scoreList;
-
-//		for (int index = 0 ; index < scoreList.size() ; index++)
-//		{	// 受け取ったリストから指定のゲームのみを抽出する
-//
-//			// 要求したゲームデータでなければ排除
-//			if (!scoreList.get(index).getGame().contentEquals(game))
-//			{ scoreList.remove(index); }
-//
-//		}	// for end
-//
-//		// リストをスコアの降順に並べ換える
-//		Collections.sort(scoreList, new Comparator<ScoreBeans>() {
-//			@SuppressWarnings("unused")
-//			public static final int ASC = 1;   //昇順 (1.2.3....)
-//			public static final int DESC = -1; //降順 (3.2.1....)
-//
-//			@Override
-//			public int compare(ScoreBeans value1, ScoreBeans value2)
-//			{
-//				int sortType = DESC;
-//				if (value1 == null && value2 == null)
-//				{ return 0; }
-//				else if (value1 == null)
-//				{ return 1 * sortType; }
-//				else if (value2 == null)
-//				{ return -1 * sortType; }
-//
-//				int score1 = Integer.parseInt(value1.getScore());
-//				int score2 = Integer.parseInt(value2.getScore());
-//
-//				return (score1 - score2) * sortType;
-//			}
-//		});
-//
-//		return scoreList;
 
 	}	// rankingLogic method end
 
