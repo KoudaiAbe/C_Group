@@ -37,7 +37,7 @@ function start() {
 	if (!state)
 	{
 		countDown();
-		state = ture;
+		state = true;
 	}
 
 	if (rotat_f[0] == "ON" || rotat_f[1] == "ON" || rotat_f[2] == "ON"){
@@ -115,7 +115,6 @@ function stop_prg(id_no) {
 }
 //カウントダウンを止める。
 function finish() {
-	clearInterval(countdown);
 	document.getElementById("msg_box").innerHTML = "<span style='color:black; font-size:28px; font-weight:bold;'>GAME OVER</span>" ;
 	gameOver();
 
