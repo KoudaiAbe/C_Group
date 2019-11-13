@@ -19,7 +19,7 @@
 		<li class="tab">DustBoxGame</li>
 		<li class="tab">15Puzzle</li>
 		<li class="tab">StopWatch</li>
-		<li class="tab">Tetris</li>
+		<li class="tab">Tetrish</li>
 		<li class="tab">Slot</li>
 	</ul>
 
