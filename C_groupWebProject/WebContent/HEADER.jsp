@@ -32,7 +32,7 @@
 		.webCommon_Header > img {
 			position:absolute;
 			left: 50px;
-			margin-top: 25px;
+			margin-top: 20px;
 			text-align: left;
 		}
 
@@ -102,7 +102,7 @@
 	}
 	%>
 	<div class="webCommon_Header">
-		<img src="WEBimg/HeadText.png" width="400" height="50" alt="SUNSELCO GAMES">
+		<img src="/C_groupWebProject/WEBimg/HeadText.png" width="400" height="70" alt="SUNSELCO GAMES">
 		<h2>ようこそ<%= name %>さん！</h2>
 		<div class="button">
 			<a href="/C_groupWebProject/index.jsp" class="btn-border">HOME</a>

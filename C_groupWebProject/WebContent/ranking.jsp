@@ -139,10 +139,26 @@
 				try
 				{
 
+					var count = 0;
+
 					nameNode.textContent = scoreList[index].name;
 					scoreNode.innerHTML = '<font size="5">'+ scoreList[index].score + '</font>pt';
 					dateNode.textContent = scoreList[index].date;
 
+					if (index != 0)
+					{	// 2位以降で行う処理
+
+						if (scoreList[index].score == scoreList[index - 1].score)
+						{	// 上位者と同ポイントなら同順にする
+
+							// 順位の表示を再設定
+							rankNode.textContent = (index - count) +"位：";
+							count++ ;
+
+						}	// if end
+					}	// if end
+
+					// ランキングの名前がログイン中ユーザと一致すればハイライト
 					if (scoreList[index].name == '<%= name %>')
 					{ listNode.style = "color: #F30;"; }
 
