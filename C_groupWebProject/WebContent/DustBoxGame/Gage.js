@@ -1,7 +1,7 @@
 let a,b;
 
-var x = 1000;
-var y = 800;
+var x = 900;
+var y = 700;
 
 var timer1 = document.getElementById("timer1");
 function start1(){
@@ -37,16 +37,16 @@ function POI() {
 	let msgIndex;
 
 	const scores = [
-		300,
-		600,
-		1000
+		300,  //Level1のMaxスコア
+		600,  //Level2のMaxスコア
+		1000  //Level3のMaxスコア
 	];
 
 	// column:level row:a,b
 	const positions = [
-		[100,750],
-		[250,450],
-		[450,800]
+		[100,750], //Level1のGOALポジション
+		[250,450], //Level2のGOALポジション
+		[450,800]  //Level3のGOALポジション
 		];
 
 //		X1 :(a1=100,b1=750)(a-a1)+(b-b1)-300
@@ -54,8 +54,8 @@ function POI() {
 //		X3 :(a3=450,b3=800)(a-a3)+(b-b3)-1000
 
 	const msg = [
-			"あー！ポイ捨て禁止ぃー！",
-			"おしい！ちゃんと捨てて！",
+			"ポイ捨て禁止だぞ！",
+			"おしい！あと少し！",
 			"GOAL!!ゴミ捨て完了！"
 	];
 
@@ -91,48 +91,48 @@ function POI() {
 
 	//条件式
 	switch(level){
-	case "1"://Level 1 廃墟    右下GoaL  //a 高加減 500px  b 力加減 850px
+	case "1"://Level 1 廃墟    右下GoaL  //a 高加減 400px  b 力加減 630px
 
-		if(a >= 0 && a < 180){
-			if(b >= 0 && b < 200){
+		if(a >= 0 && a < 150){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("1-1 out");
-			}else if(b >= 200 && b < 400){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.lv1.miss;
 				msgIndex = 1 ;
 				console.log("1-1 miss");
-			}else if(b >= 400 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.lv1.goal;
 				msgIndex = 2 ;
 				console.log("1-1 in");
 			}
 		}
-		if(a >= 180 && a < 360){
-			if(b >= 0 && b < 200){
+		if(a >= 150 && a < 275){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("1-2 out");
-			}else if(b >= 200 && b < 400){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("1-2 out");
-			}else if(b >= 400 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.lv1.miss;
 				msgIndex = 1 ;
 				console.log("1-2 miss");
 			}
 		}
-		if(a >= 360 && a < 500){
-			if(b >= 0 && b < 200){
+		if(a >= 275 && a < 400){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("1-3 out");
-			}else if(b >= 200 && b < 400){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("1-3 out");
-			}else if(b >= 400 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("1-3 out");
@@ -140,47 +140,47 @@ function POI() {
 		}
 	break;
 
-	case "2": //Level 2 路地裏   真中GoaL  //a 高加減 500px  b 力加減 850px
-		if(a >= 0 && a < 180){
-			if(b >= 0 && b < 200){
+	case "2": //Level 2 路地裏   真中GoaL  //a 高加減 400px  b 力加減 630px
+		if(a >= 0 && a < 130){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("2 out");
-			}else if(b >= 200 && b < 500){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("2 out");
-			}else if(b >= 500 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("2 out");
 			}
 		}
-		if(a >= 180 && a < 360){
-			if(b >= 0 && b < 200){
+		if(a >= 130 && a < 280){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("2 out");
-			}else if(b >= 200 && b < 500){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.lv2.goal;
 				msgIndex = 2 ;
 				console.log("2 in");
-			}else if(b >= 500 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.lv2.miss;
 				msgIndex = 1 ;
 				console.log("2 miss");
 			}
 		}
-		if(a >= 360 && a < 500){
-			if(b >= 0 && b < 200){
+		if(a >= 280 && a < 400){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("2 out");
-			}else if(b >= 200 && b < 500){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.lv2.miss;
 				msgIndex = 1 ;
 				console.log("2 miss");
-			}else if(b >= 500 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime. out;
 				msgIndex = 0 ;
 				console.log("2 out");
@@ -188,47 +188,47 @@ function POI() {
 		}
 	break;
 
-	case "3":	//Level 3 住宅街    右上GoaL  //a 高加減 500px  b 力加減 850px
-		if(a >= 0 && a < 180){
-			if(b >= 0 && b < 200){
+	case "3":	//Level 3 住宅街    右上GoaL  //a 高加減 400px  b 力加減 630px
+		if(a >= 0 && a < 130){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("3-1 out");
-			}else if(b >= 200 && b < 500){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("3-1 out");
-			}else if(b >= 500 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("3-1 out");
 			}
 		}
-		if(a >= 180 && a < 360){
-			if(b >= 0 && b < 200){
+		if(a >= 130 && a < 280){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("3-2 out");
-			}else if(b >= 200 && b < 500){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("3-2 out");
-			}else if(b >= 500 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.lv3.miss;
 				msgIndex = 1 ;
 				console.log("3-2 miss");
 			}
 		}
-		if(a >= 360 && a < 500){
-			if(b >= 0 && b < 200){
+		if(a >= 280 && a < 400){
+			if(b >= 0 && b < 210){
 				img.src = anime.out;
 				msgIndex = 0 ;
 				console.log("3-3 out");
-			}else if(b >= 200 && b < 500){
+			}else if(b >= 210 && b < 420){
 				img.src = anime.lv3.miss;
 				msgIndex = 1 ;
 				console.log("3-3 miss");
-			}else if(b >= 500 && b < 850){
+			}else if(b >= 420 && b < 630){
 				img.src = anime.lv3.goal;
 				msgIndex = 2 ;
 				console.log("3-3 in");
