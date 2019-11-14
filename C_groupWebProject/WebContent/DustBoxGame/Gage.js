@@ -274,15 +274,15 @@ function POI() {
 	// ゲーム終了後にクリック誤爆防止のため、1秒のタイムアウトを設定する
 	setTimeout(function() {
 	    document.querySelector("body")[0],addEventListener("click", function(e) {
-	        submit();
+	        submit(point);
 	    });
 	}, 1000);
 
-	function submit()
+	function submit(point)
 	{    // ページ移動ボタンが押されたらゲームのデータを送信
 
 	    document.getElementById("gameName").value = "DustBoxGame";
-	    document.getElementById("gameScore").value = score;
+	    document.getElementById("gameScore").value = point;
 	    document.getElementById("gameTop").value = "/C_groupWebProject/DustBoxGame/DustBoxTopSite.jsp";
 	    document.querySelector("form").submit();
 

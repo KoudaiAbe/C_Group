@@ -58,7 +58,7 @@ public class GameInspector extends HttpServlet {
 		Calendar c = Calendar.getInstance();
 		c.setTime(d);
 		String year = Integer.toString(c.get(Calendar.YEAR));
-		String month = Integer.toString(c.get(Calendar.MONTH));
+		String month = Integer.toString(c.get(Calendar.MONTH) + 1);
 		String day = Integer.toString(c.get(Calendar.DAY_OF_MONTH));
 		String hour = Integer.toString(c.get(Calendar.HOUR));
 		String minute = Integer.toString (c.get(Calendar.MINUTE));

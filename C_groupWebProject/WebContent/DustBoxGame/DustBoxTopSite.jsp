@@ -38,7 +38,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="HEADER.jsp"/>
+<jsp:include page="/HEADER.jsp"/>
 <div class="top" align="center" style="margin-top:180px;">
 <img src="animation/top.png" alt="写真" width="600px" height="300px"><br>
 <font size="6">Levelを選択してスタート!!</font>
