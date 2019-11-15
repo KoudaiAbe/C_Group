@@ -14,9 +14,10 @@
 
 	<div class =main>
 		<div class= "main-bg"></div>
-		<div class= "main-logo">テトリス風ゲーム</div>
+		<div class= "main-logo">Tetrish</div>
 		<div class="main-list">
 			<ul>
+			<li>テトリス風ゲーム</li>
 			<li>ブロックを揃えて高得点を狙おう！</li>
 			</ul>
 		</div>

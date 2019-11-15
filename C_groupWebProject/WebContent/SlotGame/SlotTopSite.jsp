@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="TopPage.css" type="text/css">
+<link rel="stylesheet" href="SlotTopSite.css" type="text/css">
 <title>スロットゲーム</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 				<br>２．STOPボタンを押して777が揃えば100ポイント獲得！！
 				<br>３.777が揃わなかった時点でゲーム終了。
 				<br><button class="btn" type="button"
-						onclick="location.href='SurrotGamesite.html'">START</button>
+						onclick="location.href='SlotGameSite.html'">START</button>
 			</p>
 		</div>
 	</div>

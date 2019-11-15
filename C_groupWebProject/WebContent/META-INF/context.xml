@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<Context>
+<Resource name="jdbc/foodShop" auth="Container" type="javax.sql.DataSource"
+		username="foodshopmaster" password="foodshopmaster"
+		url="jdbc:postgresql://localhost:5432/foodshop" driverClassName="org.postgresql.Driver"
+		initialSize="5" maxWait="5000" maxActive="120" maxIdle="5"
+		validationQuery="select 1" poolPreparedStatements="true" />
+</Context>

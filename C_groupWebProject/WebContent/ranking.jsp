@@ -112,9 +112,9 @@
 		function getRanking()
 		{	// ランキングを取得して表示する
 
- 			/* document.querySelector("form").submit(); */
 
 			let rankingList = document.getElementById("rankingList");
+			let count = 0;
 
 			for (let index = 0 ; index < 20 ; index++)
 			{	// 20位から順にノードを作成
@@ -139,8 +139,6 @@
 				try
 				{
 
-					var count = 0;
-
 					nameNode.textContent = scoreList[index].name;
 					scoreNode.innerHTML = '<font size="5">'+ scoreList[index].score + '</font>pt';
 					dateNode.textContent = scoreList[index].date;
@@ -155,7 +153,9 @@
 							rankNode.textContent = (index - count) +"位：";
 							count++ ;
 
-						}	// if end
+						}
+						else
+						{ count = 0; }
 					}	// if end
 
 					// ランキングの名前がログイン中ユーザと一致すればハイライト
